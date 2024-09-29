@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://4vm8xwjhuser"]
+
+[node name="WorldNico" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
