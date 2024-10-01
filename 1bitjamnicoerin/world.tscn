@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=7 format=4 uid="uid://bseibtucckmfu"]
 
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="1_b318o"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="2_mpdv8"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_hgfmf"]
+tile_data = PackedInt32Array(65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 65537, 65536, 0, 458753, 65536, 0, 65538, 65536, 0, 458754, 65536, 0, 65539, 65536, 0, 458755, 65536, 0, 4, 65536, 0, 65540, 65536, 0, 458756, 65536, 0, 524292, 65536, 0, 589828, 65536, 0, 655364, 65536, 0, 720900, 65536, 0, 196615, 0, 0, 196616, 0, 0, 393224, 131072, 0, 196617, 0, 0, 12, 65536, 0, 65548, 65536, 0, 131084, 65536, 0, 196620, 65536, 0, 262156, 65536, 0, 327692, 65536, 0, 655372, 65536, 0, 720908, 65536, 0, 327693, 65536, 0, 655373, 65536, 0, 327694, 65536, 0, 655374, 65536, 0, 327695, 65536, 0, 655375, 65536, 0, 393232, 65536, 0, 458768, 65536, 0, 524304, 65536, 0, 589840, 65536, 0, 655376, 65536, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_hd2m8"]
+tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 524288, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 720897, 0, 0, 65538, 131072, 0, 393218, 131072, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 262150, 65536, 0, 589830, 65536, 0, 720902, 0, 0, 196615, 65536, 0, 262151, 65536, 0, 524295, 65536, 0, 589831, 65536, 0, 720903, 0, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 262152, 65536, 0, 327688, 65536, 0, 393224, 65536, 0, 458760, 65536, 0, 524296, 65536, 0, 589832, 65536, 0, 655368, 65536, 0, 720904, 65536, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbbhx"]
 texture = ExtResource("1_b318o")
@@ -38,6 +44,8 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nbbhx")
+pattern_0 = SubResource("TileMapPattern_hgfmf")
+pattern_1 = SubResource("TileMapPattern_hd2m8")
 
 [node name="WorldNico" type="Node2D"]
 
@@ -58,7 +66,14 @@ tile_set = SubResource("TileSet_5b8up")
 use_kinematic_bodies = true
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="TileMap_LayerHolder"]
-position = Vector2(352, 96)
+position = Vector2(320, 128)
 tile_map_data = PackedByteArray("AAD9/wMAAAAEAAAAAAD+////AAADAAAAAAD+/wUAAAACAAAAAAAAAAcAAAACAAAAAAABAAEAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_5b8up")
 use_kinematic_bodies = true
+
+[node name="TileMapLayer4" type="TileMapLayer" parent="TileMap_LayerHolder"]
+position = Vector2(320, 128)
+tile_map_data = PackedByteArray("AAD7//z/AAABAAAAAAD7//3/AAABAAAAAAD7//7/AAABAAAAAAD7////AAABAAAAAAD7/wAAAAABAAAAAAD7/wEAAAABAAAAAAD7/wIAAAABAAAAAAD7/wMAAAABAAAAAAD7/wQAAAABAAAAAAD7/wUAAAABAAAAAAD7/wYAAAABAAAAAAD7/wcAAAABAAAAAAADAPz/AAABAAAAAAADAP3/AAABAAAAAAADAP7/AAABAAAAAAADAP//AAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAADAAYAAAABAAAAAAADAAcAAAABAAAAAAD8/wcAAAAAAAAAAAD9/wcAAAAAAAAAAAD+/wcAAAAAAAAAAAD//wcAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAD//wIAAAACAAAAAAD//wAAAAACAAAAAAABAAUAAAACAAAAAAD9/wUAAAACAAAAAAD9//3/AAACAAAAAAABAP3/AAACAAAAAAA=")
+tile_set = SubResource("TileSet_5b8up")
+use_kinematic_bodies = true
+metadata/_edit_group_ = true
