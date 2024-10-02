@@ -29,7 +29,7 @@ var chunk_amount = 10
 var neighborhood_height = 3
 var neighborhood_width = 3
 
-@onready var tilemap : TileMapLayer = $TileMapLayer4
+@onready var tilemap : TileMapLayer = $TileMapLayer6
 
 func fill_tileset_dict():
 	# Iterate over width and height and add to the dictionary
@@ -75,7 +75,9 @@ func run_random_walker():
 		var new_direction = Vector2i(randi_range(-3,3),-1)
 		my_walker_position += new_direction
 		if my_walker_position.x > 20 :
-			my_walker_position.x-= 20
+			my_walker_position.x-= 5
+		if my_walker_position.x < -20 :
+			my_walker_position.x-= 5
 		tilemap.set_cell(my_walker_position, 0, Vector2i(0,4) )
 		for x in range(randi_range(-5,-1),randi_range(1,5)):
 			for y in range(randi_range(-5,-1),randi_range(1,5)):
