@@ -1,5 +1,7 @@
 extends Node
 
+
+
 var my_tileset_dict = {
 	Vector2i(5, 5): Vector2i(2, 0),
 	Vector2i(10, 10): Vector2i(2, 0),
@@ -7,7 +9,7 @@ var my_tileset_dict = {
 	Vector2i(20, 20): Vector2i(2, 0)
 }
 
-
+var my_walker_position = Vector2i(0,12)
 var my_tileset_states_dict = {
 	Vector2i(0,0): 0
 }
@@ -21,10 +23,13 @@ var my_tileset_neighbor_positions_dict = {
 var my_tileset_max_height = 100
 var my_tileset_max_width = 100
 
+var chunk_height = 12
+var chunk_amount = 10
+
 var neighborhood_height = 3
 var neighborhood_width = 3
 
-@onready var tilemap : TileMapLayer = $TileMapLayer3
+@onready var tilemap : TileMapLayer = $TileMapLayer4
 
 func fill_tileset_dict():
 	# Iterate over width and height and add to the dictionary
@@ -50,6 +55,13 @@ func check_neighbors(current_key_position: Vector2i):
 				neighbors+=1
 			
 			
+func stack_patterns():
+	var _pattern = TileMapPattern.new()
+	var _position = Vector2i(0,0)
+	for y in range(chunk_amount):
+		_position = Vector2i(0, chunk_amount*chunk_height)
+		tilemap.set_pattern(_position, _pattern)
+	
 	
 func set_cells_from_tileset_dict():
 	# Correct dictionary reference and properly set tiles in tilemap
@@ -57,7 +69,23 @@ func set_cells_from_tileset_dict():
 		var tile_position = my_tileset_dict[position]
 		tilemap.set_cell(position, 0, Vector2i(randi_range(3,4),randi_range(0,1))) # Assuming (0) is the layer
 		print("Set tile at:", position, "with tile:", tile_position)
+		
+func run_random_walker():
+	for i in range(100):
+		var new_direction = Vector2i(randi_range(-3,3),-1)
+		my_walker_position += new_direction
+		if my_walker_position.x > 20 :
+			my_walker_position.x-= 20
+		tilemap.set_cell(my_walker_position, 0, Vector2i(0,4) )
+		for x in range(randi_range(-5,-1),randi_range(1,5)):
+			for y in range(randi_range(-5,-1),randi_range(1,5)):
+				tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(0,4))
+				if x == randi_range(-2,2):
+					tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(1,3))
+		print("where my walker should be:", my_walker_position)
+		await get_tree().create_timer(0.5).timeout
 
 func _ready():
-	fill_tileset_dict()  # Fill the dictionary first
-	set_cells_from_tileset_dict()  # Then apply the dictionary to the tilemap
+	#fill_tileset_dict()  # Fill the dictionary first
+	#set_cells_from_tileset_dict()  # Then apply the dictionary to the tilemap
+	run_random_walker()
