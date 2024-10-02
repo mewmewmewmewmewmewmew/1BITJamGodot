@@ -21,6 +21,9 @@ var my_tileset_neighbor_positions_dict = {
 var my_tileset_max_height = 100
 var my_tileset_max_width = 100
 
+var chunk_height = 12
+var chunk_amount = 10
+
 var neighborhood_height = 3
 var neighborhood_width = 3
 
@@ -50,6 +53,10 @@ func check_neighbors(current_key_position: Vector2i):
 				neighbors+=1
 			
 			
+func stack_patterns():
+	for y in range(chunk_amount):
+		tilemap.set_pattern(vector2i(0,chunk_amount*chunk_height),0 )
+	
 	
 func set_cells_from_tileset_dict():
 	# Correct dictionary reference and properly set tiles in tilemap
@@ -57,7 +64,9 @@ func set_cells_from_tileset_dict():
 		var tile_position = my_tileset_dict[position]
 		tilemap.set_cell(position, 0, Vector2i(randi_range(3,4),randi_range(0,1))) # Assuming (0) is the layer
 		print("Set tile at:", position, "with tile:", tile_position)
+		
 
 func _ready():
 	fill_tileset_dict()  # Fill the dictionary first
 	set_cells_from_tileset_dict()  # Then apply the dictionary to the tilemap
+	
