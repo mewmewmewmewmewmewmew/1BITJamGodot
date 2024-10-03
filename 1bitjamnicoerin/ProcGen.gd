@@ -74,9 +74,9 @@ func run_random_walker():
 	for i in range(100):
 		var new_direction = Vector2i(randi_range(-3,3),-1)
 		my_walker_position += new_direction
-		if my_walker_position.x > -5 :
+		if my_walker_position.x > -6 :
 			my_walker_position.x-= 5
-		if my_walker_position.x < -15 :
+		if my_walker_position.x < -14 :
 			my_walker_position.x+= 5
 		tilemap.set_cell(my_walker_position, 0, Vector2i(0,4) )
 		for x in range(randi_range(-3,-1),randi_range(0,3)):

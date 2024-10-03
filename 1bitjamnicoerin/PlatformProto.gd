@@ -36,6 +36,7 @@ var walljump_dir = 1
 @onready var animation_player = $AnimationPlayer
 @onready var _characterBody2D = $CharacterBody2D
 @onready var ray_floor = $ray_floor
+@onready var _animatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta):
 	match state:
@@ -91,9 +92,9 @@ func do_normal(delta):
 		play_walk()
 		if velocity.x > 0:
 		
-			_characterBody2D.flip_h = false
+			_animatedSprite2D.scale.x = 1
 		else:
-			_characterBody2D.flip_h = true
+			_animatedSprite2D.scale.x = -1
 			
 	if Input.is_action_just_pressed("dash"):
 		dash_timer = 0.0
@@ -104,7 +105,7 @@ func do_normal(delta):
 		
 func do_dash(delta):
 	var direction = 1.0
-	if _characterBody2D.flip_h:
+	if _animatedSprite2D.scale.x == -1 : 
 		direction = -1.0
 	velocity.x = direction * dash_speed
 	velocity.y = 0.0
@@ -137,7 +138,7 @@ func do_wall_cling(delta):
 		jump_count = 1
 		state = WALL_JUMP
 		walljump_dir = -1
-		if _characterBody2D.flip_h:
+		if _animatedSprite2D.scale.x == -1 :
 			walljump_dir = 1
 		walljump_timer = 0.0
 	
@@ -182,9 +183,9 @@ func do_wall_jump(delta):
 	else:
 		play_walk()
 		if velocity.x > 0:
-			_characterBody2D.flip_h = false
+			_animatedSprite2D.scale.x = -1
 		else:
-			_characterBody2D.flip_h = true
+			_animatedSprite2D.scale.x = 1
 			
 func play_idle():
 	if animation_player.current_animation != "IDLE":
