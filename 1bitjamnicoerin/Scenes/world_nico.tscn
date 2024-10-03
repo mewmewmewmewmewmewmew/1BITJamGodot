@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=25 format=4 uid="uid://bseibtucckmfu"]
 
+[ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
-[ext_resource type="Texture2D" uid="uid://b18ekxkx8jbqm" path="res://assets/2DAssets/Background/myBG.png" id="2_j11uk"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_naaq6"]
 [ext_resource type="Script" path="res://PlatformProto.gd" id="3_j2n3s"]
 [ext_resource type="Script" path="res://Scenes/Camera_Smooth_Follow.gd" id="4_c1lh1"]
@@ -149,20 +149,14 @@ _data = {
 "IDLE": SubResource("Animation_cmtql")
 }
 
+[sub_resource type="Theme" id="Theme_o7ynf"]
+
 [node name="world_nico" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="TileMap_LayerHolder" type="Node2D" parent="."]
 script = ExtResource("1_lwxr1")
-
-[node name="Sprite2D" type="Sprite2D" parent="TileMap_LayerHolder"]
-position = Vector2(320, 96)
-texture = ExtResource("2_j11uk")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap_LayerHolder"]
 visible = false
@@ -236,3 +230,26 @@ libraries = {
 }
 
 [node name="ray_floor" type="RayCast2D" parent="Node2D/CharacterBody2D"]
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D2"]
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 174.0
+offset_right = 385.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o7ynf")
+theme_override_fonts/normal_font = ExtResource("1_6jgsr")
+theme_override_fonts/mono_font = ExtResource("1_6jgsr")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]UPEND[/center]"
+scroll_active = false
