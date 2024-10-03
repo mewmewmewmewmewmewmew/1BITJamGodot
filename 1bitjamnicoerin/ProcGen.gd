@@ -9,7 +9,7 @@ var my_tileset_dict = {
 	Vector2i(20, 20): Vector2i(2, 0)
 }
 
-var my_walker_position = Vector2i(0,12)
+var my_walker_position = Vector2i(-10,12)
 var my_tileset_states_dict = {
 	Vector2i(0,0): 0
 }
@@ -74,18 +74,26 @@ func run_random_walker():
 	for i in range(100):
 		var new_direction = Vector2i(randi_range(-3,3),-1)
 		my_walker_position += new_direction
-		if my_walker_position.x > 20 :
+		if my_walker_position.x > -5 :
 			my_walker_position.x-= 5
-		if my_walker_position.x < -20 :
-			my_walker_position.x-= 5
+		if my_walker_position.x < -15 :
+			my_walker_position.x+= 5
 		tilemap.set_cell(my_walker_position, 0, Vector2i(0,4) )
-		for x in range(randi_range(-5,-1),randi_range(1,5)):
-			for y in range(randi_range(-5,-1),randi_range(1,5)):
+		for x in range(randi_range(-3,-1),randi_range(0,3)):
+			for y in range(randi_range(-3,-1),randi_range(0,3)):
 				tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(0,4))
 				if x == randi_range(-2,2):
 					tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(1,3))
 		print("where my walker should be:", my_walker_position)
 		await get_tree().create_timer(0.5).timeout
+func run_turning_walker():
+	for i in range(randi_range(3,5)):
+		var north_direction = Vector2i(0,-1)
+		var west_direction = Vector2i(-1,2)
+		var east_direction = Vector2i(-1,2)
+		var current_direction = north_direction
+		#choose to turn left or right
+		
 
 func _ready():
 	#fill_tileset_dict()  # Fill the dictionary first
