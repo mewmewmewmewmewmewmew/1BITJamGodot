@@ -1,0 +1,158 @@
+[gd_scene load_steps=12 format=3 uid="uid://dtykicj4331e7"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_amdj3"]
+[ext_resource type="Texture2D" uid="uid://cl0xmyd1rk4q4" path="res://assets/2DAssets/test/testchar.png" id="1_ibx6g"]
+[ext_resource type="Texture2D" uid="uid://d0jr3id8u01q" path="res://assets/2DAssets/test/testblock.png" id="2_347ju"]
+[ext_resource type="Texture2D" uid="uid://ba1ua8sopub1n" path="res://assets/2DAssets/test/ball.png" id="4_nf4j0"]
+[ext_resource type="Script" path="res://area_2d.gd" id="5_pd5jr"]
+[ext_resource type="Script" path="res://arrow.gd" id="6_eyy5x"]
+[ext_resource type="Texture2D" uid="uid://ivdyate4438j" path="res://assets/2DAssets/test/arrow.png" id="6_nh481"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6p7w"]
+size = Vector2(10, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dj5v"]
+radius = 16.4924
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_virlq"]
+size = Vector2(32, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_488nt"]
+radius = 16.0
+
+[node name="test_room" type="Node2D"]
+
+[node name="player" type="CharacterBody2D" parent="."]
+z_index = 1
+position = Vector2(216, 296)
+script = ExtResource("1_amdj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(8, 8)
+texture = ExtResource("1_ibx6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(8, 12)
+shape = SubResource("RectangleShape2D_b6p7w")
+
+[node name="coyote_timer" type="Timer" parent="player"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="player"]
+position = Vector2(8, 12)
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("5_pd5jr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
+shape = SubResource("CircleShape2D_8dj5v")
+
+[node name="blocks" type="Node" parent="."]
+
+[node name="block1" type="StaticBody2D" parent="blocks"]
+z_index = 2
+position = Vector2(224, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="blocks/block1"]
+position = Vector2(0, -16)
+texture = ExtResource("2_347ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/block1"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_virlq")
+
+[node name="block2" type="StaticBody2D" parent="blocks"]
+z_index = 2
+position = Vector2(256, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="blocks/block2"]
+position = Vector2(0, -16)
+texture = ExtResource("2_347ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/block2"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_virlq")
+
+[node name="block3" type="StaticBody2D" parent="blocks"]
+z_index = 2
+position = Vector2(192, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="blocks/block3"]
+position = Vector2(0, -16)
+texture = ExtResource("2_347ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/block3"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_virlq")
+
+[node name="block4" type="StaticBody2D" parent="blocks"]
+z_index = 2
+position = Vector2(288, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="blocks/block4"]
+position = Vector2(0, -16)
+texture = ExtResource("2_347ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/block4"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_virlq")
+
+[node name="block5" type="StaticBody2D" parent="blocks"]
+z_index = 2
+position = Vector2(160, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="blocks/block5"]
+position = Vector2(0, -16)
+texture = ExtResource("2_347ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/block5"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_virlq")
+
+[node name="block6" type="StaticBody2D" parent="blocks"]
+z_index = 2
+position = Vector2(160, 328)
+
+[node name="Sprite2D" type="Sprite2D" parent="blocks/block6"]
+position = Vector2(0, -16)
+texture = ExtResource("2_347ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/block6"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_virlq")
+
+[node name="block7" type="StaticBody2D" parent="blocks"]
+z_index = 2
+position = Vector2(288, 328)
+
+[node name="Sprite2D" type="Sprite2D" parent="blocks/block7"]
+position = Vector2(0, -16)
+texture = ExtResource("2_347ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/block7"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_virlq")
+
+[node name="ballguy" type="Node2D" parent="."]
+position = Vector2(160, 272)
+
+[node name="Sprite2D" type="Sprite2D" parent="ballguy"]
+texture = ExtResource("4_nf4j0")
+
+[node name="Area2D" type="Area2D" parent="ballguy"]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ballguy/Area2D"]
+shape = SubResource("CircleShape2D_488nt")
+
+[node name="arrow" type="Node2D" parent="."]
+position = Vector2(224, 224)
+script = ExtResource("6_eyy5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="arrow"]
+texture = ExtResource("6_nh481")
+
+[connection signal="timeout" from="player/coyote_timer" to="player" method="_on_coyote_timeout"]
