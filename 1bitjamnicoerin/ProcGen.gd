@@ -88,16 +88,20 @@ func run_random_walker():
 			for y in range(randi_range(-3,-1),randi_range(0,3)):
 				tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(0,4))
 				if x == randi_range(-2,2):
-					tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(1,3))
+					tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(0,3))
 		print("where my walker should be:", my_walker_position)
+		#if iteration is divisible by rand number between 7 and 17, then replace with eye semi closed heart tile
 		if i%randi_range(7,17) == 0 :
 			tilemap2.set_cell(my_walker_position, 0, Vector2i(3,2))
+		#if iteration is divisible by a random number between 6 and 16, then replace with partially destroyed tile
 		if i%randi_range(6,16) == 0 :
 			tilemap2.set_cell(my_walker_position, 0, Vector2i(1,1))
+		#if iteration is divisible by 5, then spwn a partial black brick tile
 		if i%5 == 0 :
 			tilemap2.set_cell(my_walker_position, 0, black_brick_tile_1)
-			for j in range(randi_range(1,3)) : 
+			for j in range(randi_range(1,3)) :
 				tilemap2.set_cell(my_walker_position + Vector2i(randi_range(-1,1),randi_range(-1,1)), 0, black_brick_tile_1)
+		#Create heart at end of 99 iterations
 		if i >= 99 :
 			tilemap.set_cell(my_walker_position, 0, Vector2i(3,0) )
 		await get_tree().create_timer(0.5).timeout
@@ -110,7 +114,6 @@ func run_turning_walker():
 		var current_direction = north_direction
 		#choose to turn left or right
 		
-
 func _ready():
 	#fill_tileset_dict()  # Fill the dictionary first
 	#set_cells_from_tileset_dict()  # Then apply the dictionary to the tilemap
