@@ -86,9 +86,9 @@ func run_random_walker(iterations):
 		tilemap.set_cell(my_walker_position, 0, Vector2i(0,4) )
 		for x in range(randi_range(-3,-1),randi_range(0,3)):
 			for y in range(randi_range(-3,-1),randi_range(0,3)):
-				tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(0,4))
+				tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, bg_tile)
 				if x == randi_range(-2,2):
-					tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(0,3))
+					tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, bg_brick)
 		print("where my walker should be:", my_walker_position)
 		#if iteration is divisible by rand number between 7 and 17, then replace with eye semi closed heart tile
 		if i%randi_range(7,17) == 0 :
