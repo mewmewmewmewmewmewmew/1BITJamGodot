@@ -1,5 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
+/android/
 
 # Godot-specific ignores
 .import/
@@ -13,3 +14,11 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+.DS_Store
+addons/FMOD/native/src/**/*.obj
+addons/FMOD/native/src/**/*.os
+addons/FMOD/native/src/**/*.o
+addons/FMOD/tests/fmod_test_project/.user
+addons/FMOD/tests/fmod_test_project/.unsaved
+addons/FMOD/editor/cache/fmod_project_cache.tres
