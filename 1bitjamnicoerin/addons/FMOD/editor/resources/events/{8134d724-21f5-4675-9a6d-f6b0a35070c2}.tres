@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://bnre6rusein1q"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Ayo"
+guid = "{8134d724-21f5-4675-9a6d-f6b0a35070c2}"
+name = "Ayo"

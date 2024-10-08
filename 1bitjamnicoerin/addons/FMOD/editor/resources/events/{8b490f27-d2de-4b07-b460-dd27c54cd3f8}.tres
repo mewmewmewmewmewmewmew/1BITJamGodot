@@ -1,0 +1,29 @@
+[gd_resource type="EventAsset" load_steps=4 format=3 uid="uid://chsen288qsonc"]
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_sxds5"]
+data1 = 3309043727
+data2 = 1771237560
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_dbc7u"]
+name = "GameState"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_sxds5")
+maximum = 2.0
+flags = 24
+guid = "{72257e05-b664-4252-9ac0-10403c8da9dd}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_psf8i"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_dbc7u")
+labels = ["MainMenu", "Death", "Gameplay"]
+path = "parameter:/GameState"
+guid = "{72257e05-b664-4252-9ac0-10403c8da9dd}"
+name = "GameState"
+
+[resource]
+min_distance = 1.0
+max_distance = 20.0
+parameters = {
+"{72257e05-b664-4252-9ac0-10403c8da9dd}": SubResource("ParameterAsset_psf8i")
+}
+path = "event:/Transition"
+guid = "{8b490f27-d2de-4b07-b460-dd27c54cd3f8}"
+name = "Transition"

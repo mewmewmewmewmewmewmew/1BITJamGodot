@@ -1,0 +1,114 @@
+[gd_resource type="ProjectCache" load_steps=10 format=3 uid="uid://dgi0pxvimsq8e"]
+
+[sub_resource type="BankAsset" id="BankAsset_yoebk"]
+file_path = "res://resources/Banks/Desktop/Master.bank"
+modified_time = 1727226737
+path = "bank:/Master"
+guid = "{fd3b6fc2-840b-426f-8ff6-82b7d91740fa}"
+name = "Master"
+
+[sub_resource type="BankAsset" id="BankAsset_a2qan"]
+file_path = "res://resources/Banks/Desktop/Master.strings.bank"
+modified_time = 1727226737
+path = "bank:/Master.strings"
+guid = "{65264f16-f570-0e2d-09bf-084928e44662}"
+name = "Master.strings"
+
+[sub_resource type="BusAsset" id="BusAsset_8pra8"]
+path = "bus:/Reverb"
+guid = "{cae71a48-d541-4824-8a0e-291247fba873}"
+name = "Reverb"
+
+[sub_resource type="BusAsset" id="BusAsset_ncrku"]
+path = "bus:/"
+guid = "{b35c05dd-832b-4c44-94e9-a55e10dc1222}"
+name = "Master"
+
+[sub_resource type="EventAsset" id="EventAsset_wik3n"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Ayo"
+guid = "{8134d724-21f5-4675-9a6d-f6b0a35070c2}"
+name = "Ayo"
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_sxds5"]
+data1 = 3309043727
+data2 = 1771237560
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_dbc7u"]
+name = "GameState"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_sxds5")
+maximum = 2.0
+flags = 24
+guid = "{72257e05-b664-4252-9ac0-10403c8da9dd}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_psf8i"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_dbc7u")
+labels = ["MainMenu", "Death", "Gameplay"]
+path = "parameter:/GameState"
+guid = "{72257e05-b664-4252-9ac0-10403c8da9dd}"
+name = "GameState"
+
+[sub_resource type="EventAsset" id="EventAsset_gikl8"]
+min_distance = 1.0
+max_distance = 20.0
+parameters = {
+"{72257e05-b664-4252-9ac0-10403c8da9dd}": SubResource("ParameterAsset_psf8i")
+}
+path = "event:/Transition"
+guid = "{8b490f27-d2de-4b07-b460-dd27c54cd3f8}"
+name = "Transition"
+
+[resource]
+banks = {
+"{65264f16-f570-0e2d-09bf-084928e44662}": SubResource("BankAsset_a2qan"),
+"{fd3b6fc2-840b-426f-8ff6-82b7d91740fa}": SubResource("BankAsset_yoebk")
+}
+events = {
+"{8134d724-21f5-4675-9a6d-f6b0a35070c2}": SubResource("EventAsset_wik3n"),
+"{8b490f27-d2de-4b07-b460-dd27c54cd3f8}": SubResource("EventAsset_gikl8")
+}
+busses = {
+"{b35c05dd-832b-4c44-94e9-a55e10dc1222}": SubResource("BusAsset_ncrku"),
+"{cae71a48-d541-4824-8a0e-291247fba873}": SubResource("BusAsset_8pra8")
+}
+bank_tree = [{
+"children": [],
+"item_type": 3,
+"node_name": "Master",
+"path": "bank:/Master",
+"resource": SubResource("BankAsset_yoebk")
+}, {
+"children": [],
+"item_type": 3,
+"node_name": "Master.strings",
+"path": "bank:/Master.strings",
+"resource": SubResource("BankAsset_a2qan")
+}]
+event_tree = [{
+"children": [],
+"item_type": 1,
+"node_name": "Ayo",
+"path": "event:/Ayo",
+"resource": SubResource("EventAsset_wik3n")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Transition",
+"path": "event:/Transition",
+"resource": SubResource("EventAsset_gikl8")
+}]
+bus_tree = [{
+"children": [{
+"children": [],
+"item_type": 4,
+"node_name": "Reverb",
+"path": "bus:/Reverb",
+"resource": SubResource("BusAsset_8pra8")
+}],
+"item_type": 4,
+"node_name": "bus:",
+"path": "bus:/",
+"resource": SubResource("BusAsset_ncrku")
+}]
