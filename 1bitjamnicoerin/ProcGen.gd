@@ -8,10 +8,10 @@ var my_tileset_dict = {
 	Vector2i(15, 15): Vector2i(2, 0),
 	Vector2i(20, 20): Vector2i(2, 0)
 }
-var black_tile = Vector2i(0,4)
-var black_brick_tile_1 = Vector2i(0,3)
-var pass_through_platform = Vector2i(0,0)
-var white_brick_tile_1 = Vector2i(1,0)
+var bg_tile = Vector2i(0,4)
+var bg_brick = Vector2i(0,3)
+var pass_through_brick = Vector2i(0,0)
+var wall_brick = Vector2i(1,0)
 
 var my_walker_position = Vector2i(-10,12)
 var my_tileset_states_dict = {
@@ -75,8 +75,8 @@ func set_cells_from_tileset_dict():
 		tilemap.set_cell(position, 0, Vector2i(randi_range(3,4),randi_range(0,1))) # Assuming (0) is the layer
 		print("Set tile at:", position, "with tile:", tile_position)
 		
-func run_random_walker():
-	for i in range(100):
+func run_random_walker(iterations):
+	for i in range(iterations):
 		var new_direction = Vector2i(randi_range(-3,3),-1)
 		my_walker_position += new_direction
 		if my_walker_position.x > -6 :
@@ -86,9 +86,9 @@ func run_random_walker():
 		tilemap.set_cell(my_walker_position, 0, Vector2i(0,4) )
 		for x in range(randi_range(-3,-1),randi_range(0,3)):
 			for y in range(randi_range(-3,-1),randi_range(0,3)):
-				tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(0,4))
+				tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, bg_tile)
 				if x == randi_range(-2,2):
-					tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, Vector2i(0,3))
+					tilemap.set_cell(my_walker_position + Vector2i(x,y), 0, bg_brick)
 		print("where my walker should be:", my_walker_position)
 		#if iteration is divisible by rand number between 7 and 17, then replace with eye semi closed heart tile
 		if i%randi_range(7,17) == 0 :
@@ -98,12 +98,12 @@ func run_random_walker():
 			tilemap2.set_cell(my_walker_position, 0, Vector2i(1,1))
 		#if iteration is divisible by 5, then spwn a partial black brick tile
 		if i%5 == 0 :
-			tilemap2.set_cell(my_walker_position, 0, black_brick_tile_1)
+			tilemap2.set_cell(my_walker_position, 0, bg_brick)
 			for j in range(randi_range(1,3)) :
-				tilemap2.set_cell(my_walker_position + Vector2i(randi_range(-1,1),randi_range(-1,1)), 0, black_brick_tile_1)
+				tilemap2.set_cell(my_walker_position + Vector2i(randi_range(-1,1),randi_range(-1,1)), 0, bg_brick)
 		#Create heart at end of 99 iterations
 		if i >= 99 :
-			tilemap.set_cell(my_walker_position, 0, Vector2i(3,0) )
+			tilemap2.set_cell(my_walker_position, 0, Vector2i(3,0) )
 		await get_tree().create_timer(0.5).timeout
 		
 func run_turning_walker():
@@ -117,4 +117,4 @@ func run_turning_walker():
 func _ready():
 	#fill_tileset_dict()  # Fill the dictionary first
 	#set_cells_from_tileset_dict()  # Then apply the dictionary to the tilemap
-	run_random_walker()
+	run_random_walker(100)
