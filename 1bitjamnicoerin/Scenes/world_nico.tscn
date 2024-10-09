@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=48 format=4 uid="uid://bseibtucckmfu"]
 
 [ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
@@ -7,6 +7,8 @@
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="4_1tq0b"]
 [ext_resource type="Script" path="res://Scenes/Camera_Smooth_Follow.gd" id="4_c1lh1"]
 [ext_resource type="Shader" path="res://assets/Shaders/palette_replace.gdshader" id="6_qdiy8"]
+[ext_resource type="Script" path="res://enemy_animation_handler.gd" id="8_7dp1j"]
+[ext_resource type="Texture2D" uid="uid://dhpd0imjf0u7s" path="res://assets/2DAssets/Tilesets/Sprite_LadyLuck.png" id="9_4dbuh"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hgfmf"]
 tile_data = PackedInt32Array(65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 65537, 65536, 0, 458753, 65536, 0, 65538, 65536, 0, 458754, 65536, 0, 65539, 65536, 0, 458755, 65536, 0, 4, 65536, 0, 65540, 65536, 0, 458756, 65536, 0, 524292, 65536, 0, 589828, 65536, 0, 655364, 65536, 0, 720900, 65536, 0, 196615, 0, 0, 196616, 0, 0, 393224, 131072, 0, 196617, 0, 0, 12, 65536, 0, 65548, 65536, 0, 131084, 65536, 0, 196620, 65536, 0, 262156, 65536, 0, 327692, 65536, 0, 655372, 65536, 0, 720908, 65536, 0, 327693, 65536, 0, 655373, 65536, 0, 327694, 65536, 0, 655374, 65536, 0, 327695, 65536, 0, 655375, 65536, 0, 393232, 65536, 0, 458768, 65536, 0, 524304, 65536, 0, 589840, 65536, 0, 655376, 65536, 0)
@@ -201,6 +203,122 @@ shader_parameter/black_color = null
 shader_parameter/black_replace_color = Color(0.25098, 0.113725, 0.168627, 1)
 shader_parameter/black_color_threshold = 0.407
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss3d3"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(0, 160, 192, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvu47"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(0, 230, 192, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ibom"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(0, 300, 192, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdk4f"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(0, 370, 192, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6o5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss3d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvu47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ibom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdk4f")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47svi"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(192, 162, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuxee"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(208, 162, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkbdg"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(224, 162, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6k4y"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(240, 162, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8gq6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47svi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuxee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkbdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6k4y")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_prgbi"]
+resource_name = "Tongue_Animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tpxk"]
+_data = {
+"Tongue_Animation": SubResource("Animation_prgbi")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlff2"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(192, 176, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67563"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(192, 208, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdauw"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(192, 240, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryuek"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(192, 272, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u42lr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlff2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67563")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdauw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryuek")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="world_nico" type="Node2D"]
 
 [node name="TileMap_LayerHolder" type="Node2D" parent="."]
@@ -290,9 +408,9 @@ libraries = {
 
 [node name="ray_floor" type="RayCast2D" parent="Node2D/CharacterBody2D"]
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="UPEND_Title" type="Node2D" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Node2D2"]
+[node name="Upend_Text" type="RichTextLabel" parent="UPEND_Title"]
 texture_filter = 1
 material = ExtResource("4_1tq0b")
 clip_contents = false
@@ -302,9 +420,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 256.0
-offset_top = 174.0
+offset_top = 164.0
 offset_right = 385.0
-offset_bottom = 186.0
+offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_o7ynf")
@@ -319,3 +437,80 @@ scroll_active = false
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_f675j")
 scale = Vector2(100, 100)
+
+[node name="Node_Enemy_Container" type="Node2D" parent="."]
+position = Vector2(320, 0)
+script = ExtResource("8_7dp1j")
+
+[node name="Snake_Animated_Sprite" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
+material = ExtResource("4_1tq0b")
+sprite_frames = SubResource("SpriteFrames_l6o5k")
+animation = &"IDLE"
+frame_progress = 0.372704
+
+[node name="Snake_Tongue_Animated_Sprite" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
+material = ExtResource("4_1tq0b")
+position = Vector2(2, 40)
+sprite_frames = SubResource("SpriteFrames_i8gq6")
+animation = &"IDLE"
+frame = 3
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node_Enemy_Container"]
+libraries = {
+"": SubResource("AnimationLibrary_1tpxk")
+}
+
+[node name="Snake_Eye_A" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
+material = ExtResource("4_1tq0b")
+position = Vector2(-64, 0)
+sprite_frames = SubResource("SpriteFrames_u42lr")
+frame = 1
+frame_progress = 0.778983
+
+[node name="Snake_Eye_B" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
+material = ExtResource("4_1tq0b")
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_u42lr")
+frame = 3
+frame_progress = 0.662923
+
+[node name="Snake_Eye_C" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
+material = ExtResource("4_1tq0b")
+position = Vector2(64, 0)
+sprite_frames = SubResource("SpriteFrames_u42lr")
+frame = 3
+frame_progress = 0.662923
+
+[node name="DeathScreen" type="Node2D" parent="."]
+
+[node name="DeathText" type="RichTextLabel" parent="DeathScreen"]
+texture_filter = 1
+material = ExtResource("4_1tq0b")
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 164.0
+offset_right = 385.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o7ynf")
+theme_override_fonts/normal_font = ExtResource("1_6jgsr")
+theme_override_fonts/mono_font = ExtResource("1_6jgsr")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]UPEND[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="SpriteLadyLuck" type="Sprite2D" parent="Node2D2"]
+material = ExtResource("4_1tq0b")
+position = Vector2(320, -3584)
+texture = ExtResource("9_4dbuh")
