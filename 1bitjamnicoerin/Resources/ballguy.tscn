@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://du0urt2nu88ab"]
+
+[ext_resource type="Texture2D" uid="uid://ba1ua8sopub1n" path="res://assets/2DAssets/test/ball.png" id="1_3wous"]
+[ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="1_h32h2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_488nt"]
+radius = 0.0
+
+[node name="ballguy" type="Node2D"]
+position = Vector2(608, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_h32h2")
+texture = ExtResource("1_3wous")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_488nt")

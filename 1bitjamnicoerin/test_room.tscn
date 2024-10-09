@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://s8twhhf6q0tv"]
+[gd_scene load_steps=23 format=4 uid="uid://s8twhhf6q0tv"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_amdj3"]
 [ext_resource type="Texture2D" uid="uid://cl0xmyd1rk4q4" path="res://assets/2DAssets/test/testchar.png" id="1_ibx6g"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ivdyate4438j" path="res://assets/2DAssets/test/arrow.png" id="6_nh481"]
 [ext_resource type="Script" path="res://block_7.gd" id="7_exms8"]
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="9_xiw67"]
+[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="10_cv28k"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="10_kd7s1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hgfmf"]
@@ -244,18 +245,7 @@ shape = SubResource("RectangleShape2D_virlq")
 one_way_collision = true
 one_way_collision_margin = 4.5
 
-[node name="ballguy" type="Node2D" parent="."]
-position = Vector2(608, 96)
-
-[node name="Sprite2D" type="Sprite2D" parent="ballguy"]
-texture = ExtResource("4_nf4j0")
-
-[node name="Area2D" type="Area2D" parent="ballguy"]
-collision_layer = 64
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ballguy/Area2D"]
-shape = SubResource("CircleShape2D_488nt")
+[node name="ballguy" parent="." instance=ExtResource("10_cv28k")]
 
 [node name="ballguy2" type="Node2D" parent="."]
 position = Vector2(200, 272)
