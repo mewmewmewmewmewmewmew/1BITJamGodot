@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=50 format=4 uid="uid://bseibtucckmfu"]
 
 [ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
@@ -347,6 +347,30 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wp55"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlff2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67563")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdauw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryuek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlff2")
+}],
+"loop": false,
+"name": &"IDLE",
+"speed": 12.0
+}]
+
 [node name="world_nico" type="Node2D"]
 
 [node name="TileMap_LayerHolder" type="Node2D" parent="."]
@@ -502,8 +526,8 @@ animation = &"IDLE"
 
 [node name="Snake_Eye_C" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
 material = ExtResource("4_1tq0b")
-position = Vector2(2, 0)
-sprite_frames = SubResource("SpriteFrames_442ju")
+position = Vector2(64, 0)
+sprite_frames = SubResource("SpriteFrames_7wp55")
 animation = &"IDLE"
 
 [node name="DeathScreen" type="Node2D" parent="."]
