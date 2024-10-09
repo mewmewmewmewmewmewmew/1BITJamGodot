@@ -6,7 +6,7 @@ extends Node
 @onready var _animated_snake_eye_sprite_B = $Snake_Eye_B
 @onready var _animated_snake_eye_sprite_C = $Snake_Eye_C
 
-var interval = 2.0  # Call the function every 2 seconds
+var interval = 1.5  # Call the function every 2 seconds
 var time_left = interval  # Start the countdown
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,19 +24,18 @@ func _process(delta: float) -> void:
 # Function to be called every 2 seconds
 func call_repeated_function():
 	_Blinks()
-	time_left = randi_range(7,9)
 	print("Function called!")
 	
 func _Blinks():
 	for i in range(4):
 		if i == 1 :
-			await get_tree().create_timer(i/3).timeout
+			await get_tree().create_timer(.2).timeout
 			_animated_snake_eye_sprite_A.play("IDLE")
 		if i == 2 :
-			await get_tree().create_timer(i/3).timeout
+			await get_tree().create_timer(.2).timeout
 			_animated_snake_eye_sprite_B.play("IDLE")
 		if i == 3 :
-			await get_tree().create_timer(i/3).timeout
+			await get_tree().create_timer(.2).timeout
 			_animated_snake_eye_sprite_C.play("IDLE")
 			
 		

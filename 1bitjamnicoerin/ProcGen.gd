@@ -13,6 +13,7 @@ var bg_brick = Vector2i(0,3)
 var pass_through_brick = Vector2i(0,0)
 var solid_brick = Vector2i(1,0)
 var unstable_brick = Vector2i(1,1)
+var heart_eye = Vector2i(3,0)
 
 var my_walker_position = Vector2i(-10,12)
 var my_tileset_states_dict = {
@@ -92,8 +93,8 @@ func run_random_walker(iterations):
 					Collision_Tile_Map.set_cell(my_walker_position + Vector2i(x,y), 0, bg_brick)
 		print("where my walker should be:", my_walker_position)
 		#if iteration is divisible by rand number between 7 and 17, then replace with eye semi closed heart tile
-		if i%randi_range(7,17) == 0 :
-			Collision_Tile_Map.set_cell(my_walker_position, 0, Vector2i(3,2))
+		#if i%randi_range(7,17) == 0 :
+			#Collision_Tile_Map.set_cell(my_walker_position, 0, Vector2i(3,2))
 		#if iteration is divisible by a random number between 6 and 16, then replace with partially destroyed tile
 		if i%randi_range(6,16) == 0 :
 			Collision_Tile_Map.set_cell(my_walker_position, 0, unstable_brick)
@@ -104,7 +105,7 @@ func run_random_walker(iterations):
 				BG_Tile_Map.set_cell(my_walker_position + Vector2i(randi_range(-1,1),randi_range(-1,1)), 0, bg_brick)
 		#Create heart at end of 99 iterations
 		if i >= 99 :
-			Collision_Tile_Map.set_cell(my_walker_position, 0, bg_brick )
+			Collision_Tile_Map.set_cell(my_walker_position, 0, heart_eye )
 		await get_tree().create_timer(0.5).timeout
 		
 func run_turning_walker():
