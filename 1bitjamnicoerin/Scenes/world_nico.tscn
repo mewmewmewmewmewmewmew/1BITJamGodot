@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=49 format=4 uid="uid://bseibtucckmfu"]
 
 [ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
@@ -299,7 +299,8 @@ region = Rect2(192, 240, 32, 32)
 atlas = ExtResource("2_naaq6")
 region = Rect2(192, 272, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_u42lr"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgjrp"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -313,9 +314,36 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ryuek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlff2")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"IDLE",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_442ju"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlff2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67563")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdauw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryuek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlff2")
+}],
+"loop": false,
+"name": &"IDLE",
 "speed": 12.0
 }]
 
@@ -378,35 +406,34 @@ tile_map_data = PackedByteArray("AAAAAAcAAAACAAAAAAABAAEAAAAEAAEAAADv/+D/AAABAAA
 tile_set = SubResource("TileSet_5b8up")
 use_kinematic_bodies = true
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(0, 352)
+[node name="Player" type="Node2D" parent="."]
 script = ExtResource("4_c1lh1")
 
-[node name="Camera2D" type="Camera2D" parent="Node2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(320, 64)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
 position = Vector2(320, 160)
 script = ExtResource("3_j2n3s")
 
-[node name="FollowPoint" type="Node2D" parent="Node2D/CharacterBody2D"]
+[node name="FollowPoint" type="Node2D" parent="Player/CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
 shape = SubResource("RectangleShape2D_6y4oa")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
 material = ExtResource("4_1tq0b")
 sprite_frames = SubResource("SpriteFrames_ruej0")
 animation = &"IDLE"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/CharacterBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/CharacterBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_vyw22")
 }
 
-[node name="ray_floor" type="RayCast2D" parent="Node2D/CharacterBody2D"]
+[node name="ray_floor" type="RayCast2D" parent="Player/CharacterBody2D"]
 
 [node name="UPEND_Title" type="Node2D" parent="."]
 
@@ -446,7 +473,7 @@ script = ExtResource("8_7dp1j")
 material = ExtResource("4_1tq0b")
 sprite_frames = SubResource("SpriteFrames_l6o5k")
 animation = &"IDLE"
-frame_progress = 0.372704
+frame_progress = 0.473749
 
 [node name="Snake_Tongue_Animated_Sprite" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
 material = ExtResource("4_1tq0b")
@@ -464,23 +491,20 @@ libraries = {
 [node name="Snake_Eye_A" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
 material = ExtResource("4_1tq0b")
 position = Vector2(-64, 0)
-sprite_frames = SubResource("SpriteFrames_u42lr")
-frame = 1
-frame_progress = 0.778983
+sprite_frames = SubResource("SpriteFrames_bgjrp")
+animation = &"IDLE"
 
 [node name="Snake_Eye_B" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
 material = ExtResource("4_1tq0b")
 position = Vector2(2, 0)
-sprite_frames = SubResource("SpriteFrames_u42lr")
-frame = 3
-frame_progress = 0.662923
+sprite_frames = SubResource("SpriteFrames_442ju")
+animation = &"IDLE"
 
 [node name="Snake_Eye_C" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
 material = ExtResource("4_1tq0b")
-position = Vector2(64, 0)
-sprite_frames = SubResource("SpriteFrames_u42lr")
-frame = 3
-frame_progress = 0.662923
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_442ju")
+animation = &"IDLE"
 
 [node name="DeathScreen" type="Node2D" parent="."]
 
