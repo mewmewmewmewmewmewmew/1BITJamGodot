@@ -3,17 +3,19 @@ signal show_arrow(pos,rot)
 signal hide_arrow()
 signal dash_ready(dir)
 signal dash_unready()
+var player = ''
+var closest = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	player = $".."
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if has_overlapping_areas() == true:
+	if has_overlapping_areas() == true and player.state == "move":
 		#finds the closest overlapping object
-		var closest = null #stores the closest overlapping object
+		closest = null #stores the closest overlapping object
 		for i in get_overlapping_areas():
 			if closest == null:
 				closest = i

@@ -1,4 +1,4 @@
-[gd_resource type="ProjectCache" load_steps=10 format=3 uid="uid://dgi0pxvimsq8e"]
+[gd_resource type="ProjectCache" load_steps=8 format=3 uid="uid://dgi0pxvimsq8e"]
 
 [sub_resource type="BankAsset" id="BankAsset_yoebk"]
 file_path = "res://resources/Banks/Desktop/Master.bank"
@@ -32,19 +32,7 @@ path = "event:/Ayo"
 guid = "{8134d724-21f5-4675-9a6d-f6b0a35070c2}"
 name = "Ayo"
 
-[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_sxds5"]
-data1 = 3309043727
-data2 = 1771237560
-
-[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_dbc7u"]
-name = "GameState"
-id = SubResource("FMOD_STUDIO_PARAMETER_ID_sxds5")
-maximum = 2.0
-flags = 24
-guid = "{72257e05-b664-4252-9ac0-10403c8da9dd}"
-
 [sub_resource type="ParameterAsset" id="ParameterAsset_psf8i"]
-parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_dbc7u")
 labels = ["MainMenu", "Death", "Gameplay"]
 path = "parameter:/GameState"
 guid = "{72257e05-b664-4252-9ac0-10403c8da9dd}"
