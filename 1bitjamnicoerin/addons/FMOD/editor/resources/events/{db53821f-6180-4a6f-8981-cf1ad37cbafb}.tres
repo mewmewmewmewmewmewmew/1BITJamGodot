@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://b1mx4w0thcuoc"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Slash Sound"
+guid = "{db53821f-6180-4a6f-8981-cf1ad37cbafb}"
+name = "Slash Sound"

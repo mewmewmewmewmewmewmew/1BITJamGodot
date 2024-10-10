@@ -1,22 +1,24 @@
 #
    # fmod_guids.gd - FMOD Studio API
 
-   # Generated GUIDs for project 'DesktopWarriorFmodFile.fspro'
+   # Generated GUIDs for project '1BitJamTower.fspro'
 #
 
 class_name FMODGuids
 
 class Events:
-	const AYO = "{8134d724-21f5-4675-9a6d-f6b0a35070c2}"
-	const TRANSITION = "{8b490f27-d2de-4b07-b460-dd27c54cd3f8}"
+	const CLIMBINGTHECATHEDRAL = "{8e83e7ce-94de-43a7-9668-4a40b44130f5}"
+	const JUMP_SOUND = "{4a98fc32-bb41-4971-bf7c-e10732f27fca}"
+	const MAINAUDIO = "{9a6e7552-1758-46f8-91ab-781d00f2319d}"
+	const NEW_EVENT = "{8e492a6e-27fb-45f0-ad76-05cd9b5d54d2}"
+	const NEW_EVENT_2 = "{78b3f09f-6443-495b-a484-a98169d5419a}"
+	const SCARYAMBIENCE = "{7c5e83dd-f1ec-4a82-88d0-d08b3b3f87f1}"
+	const SLASH_SOUND = "{db53821f-6180-4a6f-8981-cf1ad37cbafb}"
 
 class Busses:
-	const MASTER_BUS = "{b35c05dd-832b-4c44-94e9-a55e10dc1222}"
-	const REVERB = "{cae71a48-d541-4824-8a0e-291247fba873}"
+	const MASTER_BUS = "{a34c041f-101f-4be9-a74d-7e820beb4a45}"
+	const REVERB = "{9de6b35e-b6ab-471e-a063-68f1b8bbdb1a}"
 
 class Banks:
-	const MASTER = "{fd3b6fc2-840b-426f-8ff6-82b7d91740fa}"
-
-class Parameters:
-	const GAMESTATE = "{6e6d895d-b744-4652-98a7-e8700702456a}"
+	const MASTER = "{c06f1ebc-108a-4e29-9144-c41638055cc2}"
 
