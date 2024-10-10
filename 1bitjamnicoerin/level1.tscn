@@ -233,12 +233,13 @@ position = Vector2(768, 64)
 
 [node name="bat" parent="." instance=ExtResource("9_h6ka1")]
 position = Vector2(728, 144)
-mode = "vertical"
+radius = 100.0
 duration = 3.0
 
 [node name="bat2" parent="." instance=ExtResource("9_h6ka1")]
 position = Vector2(680, 128)
-mode = "counter clockwise"
+mode = "diag2"
+duration = 6.0
 
 [connection signal="dash_ready" from="player_and_camera/player/Area2D" to="player_and_camera/player" method="_on_dash_ready"]
 [connection signal="dash_unready" from="player_and_camera/player/Area2D" to="player_and_camera/player" method="_on_dash_unready"]
