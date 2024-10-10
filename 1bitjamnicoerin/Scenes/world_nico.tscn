@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_naaq6"]
+[ext_resource type="EventAsset" uid="uid://dp2f8kjnkfagx" path="res://addons/FMOD/editor/resources/events/{8e83e7ce-94de-43a7-9668-4a40b44130f5}.tres" id="3_0cu85"]
 [ext_resource type="Script" path="res://PlatformProto.gd" id="3_j2n3s"]
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="4_1tq0b"]
 [ext_resource type="Script" path="res://Scenes/Camera_Smooth_Follow.gd" id="4_c1lh1"]
@@ -15,14 +16,6 @@
 [ext_resource type="BankAsset" uid="uid://dfqaqbk5cy8py" path="res://addons/FMOD/editor/resources/banks/{58723e68-61f1-026b-170d-4ee8c9f65a5a}.tres" id="9_b2c0h"]
 [ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="10_kb00w"]
 [ext_resource type="PackedScene" uid="uid://igcdf7do7npx" path="res://assets/imported/fade/fade/fade_screen.tscn" id="13_gvr58"]
-
-[sub_resource type="EventAsset" id="EventAsset_31s33"]
-is_oneshot = true
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/ScaryAmbience"
-guid = "{7c5e83dd-f1ec-4a82-88d0-d08b3b3f87f1}"
-name = "ScaryAmbience"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c3tf"]
 
@@ -290,7 +283,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"FADEIN",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -506,7 +499,7 @@ rigidbody = NodePath("../Player/CharacterBody2D")
 
 [node name="StudioEventEmitter2D" type="StudioEventEmitter2D" parent="." node_paths=PackedStringArray("rigidbody")]
 play_event = 1
-event = SubResource("EventAsset_31s33")
+event = ExtResource("3_0cu85")
 preload_samples = true
 trigger_once = true
 rigidbody = NodePath("../Player/CharacterBody2D")
@@ -582,7 +575,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
 [node name="Transition" type="Node2D" parent="Player/Camera2D"]
-visible = false
 position = Vector2(0, -16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Camera2D/Transition"]
