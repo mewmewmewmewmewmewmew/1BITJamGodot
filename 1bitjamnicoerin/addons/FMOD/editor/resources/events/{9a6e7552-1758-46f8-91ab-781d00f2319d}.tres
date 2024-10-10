@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://1fmkgby76nn0"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/MainAudio"
+guid = "{9a6e7552-1758-46f8-91ab-781d00f2319d}"
+name = "MainAudio"

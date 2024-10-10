@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://bjncs7vwjqn0a"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/ScaryAmbience"
+guid = "{7c5e83dd-f1ec-4a82-88d0-d08b3b3f87f1}"
+name = "ScaryAmbience"

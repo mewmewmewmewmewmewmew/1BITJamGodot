@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=70 format=4 uid="uid://bseibtucckmfu"]
 
 [ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
@@ -10,8 +10,19 @@
 [ext_resource type="Shader" path="res://assets/Shaders/palette_replace.gdshader" id="6_qdiy8"]
 [ext_resource type="Script" path="res://Play_Placeholder.gd" id="6_ulc7h"]
 [ext_resource type="Script" path="res://enemy_animation_handler.gd" id="8_7dp1j"]
+[ext_resource type="BankAsset" uid="uid://6o56tcwyt4k0" path="res://addons/FMOD/editor/resources/banks/{c06f1ebc-108a-4e29-9144-c41638055cc2}.tres" id="8_xvq3v"]
 [ext_resource type="Texture2D" uid="uid://dhpd0imjf0u7s" path="res://assets/2DAssets/Tilesets/Sprite_LadyLuck.png" id="9_4dbuh"]
+[ext_resource type="BankAsset" uid="uid://dfqaqbk5cy8py" path="res://addons/FMOD/editor/resources/banks/{58723e68-61f1-026b-170d-4ee8c9f65a5a}.tres" id="9_b2c0h"]
 [ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="10_kb00w"]
+[ext_resource type="PackedScene" uid="uid://igcdf7do7npx" path="res://assets/imported/fade/fade/fade_screen.tscn" id="13_gvr58"]
+
+[sub_resource type="EventAsset" id="EventAsset_31s33"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/ScaryAmbience"
+guid = "{7c5e83dd-f1ec-4a82-88d0-d08b3b3f87f1}"
+name = "ScaryAmbience"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c3tf"]
 
@@ -81,6 +92,26 @@ pattern_4 = SubResource("TileMapPattern_53ntv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6y4oa"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ae5"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(256, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm582"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(256, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1p3n"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(256, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udft7"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(256, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt57s"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(256, 288, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_csew2"]
 atlas = ExtResource("2_naaq6")
 region = Rect2(128, 0, 32, 32)
@@ -93,25 +124,48 @@ region = Rect2(128, 32, 32, 32)
 atlas = ExtResource("2_naaq6")
 region = Rect2(128, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pevsm"]
+atlas = ExtResource("2_naaq6")
+region = Rect2(128, 64, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w3uu"]
 atlas = ExtResource("2_naaq6")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65683"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_scymd"]
 atlas = ExtResource("2_naaq6")
-region = Rect2(96, 0, 32, 32)
+region = Rect2(288, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c73fm"]
 atlas = ExtResource("2_naaq6")
 region = Rect2(32, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pevsm"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(128, 64, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ruej0"]
 resource_local_to_scene = true
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ae5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm582")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1p3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udft7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt57s")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"DEATH",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_csew2")
@@ -128,6 +182,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pevsm")
+}],
+"loop": true,
+"name": &"JUMP",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4w3uu")
 }],
 "loop": true,
@@ -136,10 +198,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_65683")
+"texture": SubResource("AtlasTexture_scymd")
 }],
 "loop": true,
-"name": &"WallCling",
+"name": &"WALLCLINGR",
 "speed": 5.0
 }, {
 "frames": [{
@@ -148,14 +210,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"dash",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pevsm")
-}],
-"loop": true,
-"name": &"jump",
 "speed": 5.0
 }]
 
@@ -436,7 +490,26 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cdha5"]
+
 [node name="world_nico" type="Node2D"]
+
+[node name="StudioBankLoader" type="StudioBankLoader" parent="."]
+load_on = 1
+preload_sample_data = true
+num_banks = 2
+bank_0 = ExtResource("8_xvq3v")
+bank_1 = ExtResource("9_b2c0h")
+
+[node name="StudioListener2D" type="StudioListener2D" parent="." node_paths=PackedStringArray("rigidbody")]
+rigidbody = NodePath("../Player/CharacterBody2D")
+
+[node name="StudioEventEmitter2D" type="StudioEventEmitter2D" parent="." node_paths=PackedStringArray("rigidbody")]
+play_event = 1
+event = SubResource("EventAsset_31s33")
+preload_samples = true
+trigger_once = true
+rigidbody = NodePath("../Player/CharacterBody2D")
 
 [node name="Start" type="Node2D" parent="."]
 
@@ -509,6 +582,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
 [node name="Transition" type="Node2D" parent="Player/Camera2D"]
+visible = false
 position = Vector2(0, -16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Camera2D/Transition"]
@@ -517,6 +591,7 @@ animation = &"FADEIN"
 script = ExtResource("6_ulc7h")
 
 [node name="UPEND_Title" type="Node2D" parent="."]
+visible = false
 
 [node name="Upend_Text" type="RichTextLabel" parent="UPEND_Title"]
 texture_filter = 1
@@ -587,35 +662,9 @@ position = Vector2(64, 0)
 sprite_frames = SubResource("SpriteFrames_7wp55")
 animation = &"IDLE"
 
-[node name="DeathScreen" type="Node2D" parent="."]
+[node name="LadyLuck" type="Node2D" parent="."]
 
-[node name="DeathText" type="RichTextLabel" parent="DeathScreen"]
-texture_filter = 1
-material = ExtResource("4_1tq0b")
-clip_contents = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 256.0
-offset_top = 164.0
-offset_right = 385.0
-offset_bottom = 196.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_o7ynf")
-theme_override_fonts/normal_font = ExtResource("1_6jgsr")
-theme_override_fonts/mono_font = ExtResource("1_6jgsr")
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "[center]UPEND[/center]"
-fit_content = true
-scroll_active = false
-
-[node name="Node2D2" type="Node2D" parent="."]
-
-[node name="SpriteLadyLuck" type="Sprite2D" parent="Node2D2"]
+[node name="SpriteLadyLuck" type="Sprite2D" parent="LadyLuck"]
 material = ExtResource("4_1tq0b")
 position = Vector2(320, -3584)
 texture = ExtResource("9_4dbuh")
@@ -624,7 +673,43 @@ texture = ExtResource("9_4dbuh")
 position = Vector2(288, 288)
 
 [node name="HUD" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TextureRect" parent="HUD" instance=ExtResource("13_gvr58")]
+material = SubResource("CanvasItemMaterial_cdha5")
+layout_mode = 1
+offset_right = 600.0
+offset_bottom = 248.0
+
+[node name="DeathText" type="RichTextLabel" parent="HUD"]
+texture_filter = 1
+material = ExtResource("4_1tq0b")
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 172.0
+offset_top = 96.0
+offset_right = 428.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o7ynf")
+theme_override_fonts/normal_font = ExtResource("1_6jgsr")
+theme_override_fonts/mono_font = ExtResource("1_6jgsr")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]YOU DIED [/center]
+[center]play again? [/center]
+[center](press any key) [/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Node" type="Node" parent="."]
