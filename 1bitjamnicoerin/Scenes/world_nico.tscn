@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=60 format=4 uid="uid://bseibtucckmfu"]
 
 [ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://PlatformProto.gd" id="3_j2n3s"]
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="4_1tq0b"]
 [ext_resource type="Script" path="res://Scenes/Camera_Smooth_Follow.gd" id="4_c1lh1"]
+[ext_resource type="Texture2D" uid="uid://m3saj2ra8xja" path="res://assets/2DAssets/Tilesets/Transition_Spritesheet.png" id="5_2dlfr"]
 [ext_resource type="Shader" path="res://assets/Shaders/palette_replace.gdshader" id="6_qdiy8"]
+[ext_resource type="Script" path="res://Play_Placeholder.gd" id="6_ulc7h"]
 [ext_resource type="Script" path="res://enemy_animation_handler.gd" id="8_7dp1j"]
 [ext_resource type="Texture2D" uid="uid://dhpd0imjf0u7s" path="res://assets/2DAssets/Tilesets/Sprite_LadyLuck.png" id="9_4dbuh"]
 [ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="10_kb00w"]
@@ -193,6 +195,66 @@ _data = {
 "IDLE": SubResource("Animation_cmtql"),
 "RESET": SubResource("Animation_cx4jj")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tcbg"]
+atlas = ExtResource("5_2dlfr")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7myb8"]
+atlas = ExtResource("5_2dlfr")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhbta"]
+atlas = ExtResource("5_2dlfr")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cveo1"]
+atlas = ExtResource("5_2dlfr")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxfcp"]
+atlas = ExtResource("5_2dlfr")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kahy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tcbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7myb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhbta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cveo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxfcp")
+}],
+"loop": false,
+"name": &"FADEIN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cveo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhbta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7myb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tcbg")
+}],
+"loop": true,
+"name": &"FADEOUT",
+"speed": 5.0
+}]
 
 [sub_resource type="Theme" id="Theme_o7ynf"]
 
@@ -419,11 +481,6 @@ use_kinematic_bodies = true
 position = Vector2(0, 448)
 script = ExtResource("4_c1lh1")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(320, 64)
-position_smoothing_enabled = true
-position_smoothing_speed = 4.0
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
 position = Vector2(320, 160)
 script = ExtResource("3_j2n3s")
@@ -445,6 +502,19 @@ libraries = {
 
 [node name="ray_floor" type="RayCast2D" parent="Player/CharacterBody2D"]
 visible = false
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(320, 64)
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="Transition" type="Node2D" parent="Player/Camera2D"]
+position = Vector2(0, -16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Camera2D/Transition"]
+sprite_frames = SubResource("SpriteFrames_2kahy")
+animation = &"FADEIN"
+script = ExtResource("6_ulc7h")
 
 [node name="UPEND_Title" type="Node2D" parent="."]
 
@@ -553,4 +623,8 @@ texture = ExtResource("9_4dbuh")
 [node name="ballguy" parent="." instance=ExtResource("10_kb00w")]
 position = Vector2(288, 288)
 
-[node name="Transition" type="Node2D" parent="."]
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
