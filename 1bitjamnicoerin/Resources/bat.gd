@@ -3,6 +3,9 @@ extends Node2D
 @export var radius := 50.0
 @export_enum("clockwise", "counter clockwise","horizontal","vertical","diag1","diag2") var mode := "clockwise"
 @export var duration := 5.0
+@export var time_offset := 0.0
+@export var respawn_time := 2.0
+
 var x:float
 var pos = 0
 
@@ -10,10 +13,11 @@ var pos = 0
 func _ready() -> void:
 	pos = global_position
 	$Timer.wait_time = duration
-
+	$respawn_timer.wait_time = respawn_time
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	x = ($Timer.time_left/$Timer.wait_time)*PI*2
+	x = (($Timer.time_left-time_offset)/$Timer.wait_time)*PI*2
 	if mode == "clockwise":
 		global_position.y = pos.y + sin(-x)*radius
 		global_position.x = pos.x + cos(x)*radius
@@ -32,3 +36,14 @@ func _process(delta: float) -> void:
 		global_position.x = pos.x + sin(x)*radius
 	#print(sin(x*PI)*delta_y)
 	
+
+func _on_area_2d_damage() -> void:
+	$Area2D/CollisionShape2D.disabled = true #turns off the slash dash point
+	$Area2D_damage/CollisionShape2D.disabled = true #turns off damage
+	#$Timer.paused = true #pauses movement
+	$respawn_timer.start()
+	
+func _on_respawn_timer_timeout() -> void:
+	$Area2D/CollisionShape2D.disabled = false #turns off the slash dash point
+	$Area2D_damage/CollisionShape2D.disabled = false #turns off damage
+	#$Timer.paused = false #pauses movement

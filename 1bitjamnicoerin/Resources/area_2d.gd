@@ -1,5 +1,5 @@
 extends Area2D
-
+signal damage
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 func die():
-	$"..".queue_free()
+	damage.emit()
