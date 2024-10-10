@@ -10,15 +10,21 @@ var dash_dir = null #stores the normalized direction pointing to the dash target
 var walljump_f := true #walljump flag, allows the player to jump from a wall cling; resets on dash or ground touch
 var clingfacing = 0 #player facing for wallclings, should be -1 for left or 1 for right
 var state = "move"
+var invincible = false #for dashing through enemies
 
 
 func _physics_process(delta: float) -> void:
 	if state == "move":
 		#handles dash
 		if Input.is_action_just_pressed("ui_dash") and dash_f == true:
+			collision_mask = 0b0001 #turns one way collisions back of
 			$dash_timer.start() #ends the dash after a certain amount of time
 			velocity = DASH_SPEED * dash_dir
+			invincible = true
 			state = "dash"
+			#destroys certain destructible objects
+			if $Area2D.closest.has_method("die"):
+				$Area2D.closest.die()
 		else:
 			player_move(delta)
 	if state == "dash":
@@ -89,7 +95,9 @@ func player_dash(delta):
 	var x = move_and_collide(velocity*delta)
 	#code for initiating wallclings
 	if x != null:
-		if x.get_normal() == Vector2(1, 0) and Input.is_action_pressed("ui_left"): #if colliding with a right facing wall while holding left
+		if x.get_normal() == Vector2(1, 0): #if colliding with a right facing wall
+			collision_mask = 0b0011 #turns one way collisions back on
+			invincible = false #for dashing through enemies
 			position += Vector2(1,0) #prevents clipping
 			state = "wall cling"
 			jump_f = false
@@ -97,7 +105,9 @@ func player_dash(delta):
 			velocity = Vector2(0,0)
 			$wallcling_timer.start()
 			$dash_timer.stop()
-		elif x.get_normal() == Vector2(-1, 0) and Input.is_action_pressed("ui_right"):
+		elif x.get_normal() == Vector2(-1, 0):
+			collision_mask = 0b0011 #turns one way collisions back on
+			invincible = false #for dashing through enemies
 			position += Vector2(-1,0) #prevents clipping
 			state = "wall cling"
 			jump_f = false
@@ -108,7 +118,8 @@ func player_dash(delta):
 		else:
 			velocity = Vector2(0,0)
 
-			
+
+
 
 func player_wallcling():
 	#wall release
@@ -124,8 +135,7 @@ func player_wallcling():
 	elif Input.is_action_just_pressed("ui_up"):
 		$floor_lockout.start() #prevents the player from regaining jump from touching ground bc godots floor detection near walls is glitchy
 		state = "move"
-		velocity = Vector2(-sqrt(0.5)*clingfacing, sqrt(0.5)) * JUMP_VELOCITY * 1.15
-		print(velocity)
+		velocity = Vector2(-sqrt(0.5)*clingfacing, sqrt(0.5)) * JUMP_VELOCITY * 1
 
 
 
@@ -140,4 +150,6 @@ func _on_coyote_timeout() -> void:
 	jump_f = false
 
 func _on_dash_timer_timeout() -> void:
+	collision_mask = 0b0011 #turns one way collisions back on
+	invincible = false #for dashing through enemies
 	state = "move"

@@ -1,15 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://du0urt2nu88ab"]
+[gd_scene load_steps=10 format=3 uid="uid://du0urt2nu88ab"]
 
 [ext_resource type="Texture2D" uid="uid://ba1ua8sopub1n" path="res://assets/2DAssets/test/ball.png" id="1_3wous"]
+[ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="1_7qumj"]
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="1_h32h2"]
+[ext_resource type="Script" path="res://Resources/animated_sprite_2d.gd" id="2_6v56x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw1i4"]
+atlas = ExtResource("1_7qumj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp6ku"]
+atlas = ExtResource("1_7qumj")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s74wa"]
+atlas = ExtResource("1_7qumj")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0yle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw1i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp6ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s74wa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_488nt"]
 radius = 0.0
 
 [node name="ballguy" type="Node2D"]
-position = Vector2(608, 96)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w0yle")
+script = ExtResource("2_6v56x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 material = ExtResource("1_h32h2")
 texture = ExtResource("1_3wous")
 

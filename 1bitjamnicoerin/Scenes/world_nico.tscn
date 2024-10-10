@@ -460,6 +460,7 @@ libraries = {
 }
 
 [node name="ray_floor" type="RayCast2D" parent="Player/CharacterBody2D"]
+visible = false
 
 [node name="UPEND_Title" type="Node2D" parent="."]
 
