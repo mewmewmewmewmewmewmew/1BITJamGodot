@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://cff32cgsbka2f"]
+
+[ext_resource type="Script" path="res://player_and_camera.gd" id="1_e5bb5"]
+[ext_resource type="Script" path="res://player.gd" id="2_fu540"]
+[ext_resource type="Script" path="res://arrow.gd" id="3_1tdfi"]
+[ext_resource type="Texture2D" uid="uid://ivdyate4438j" path="res://assets/2DAssets/test/arrow.png" id="4_on4bw"]
+[ext_resource type="Texture2D" uid="uid://cl0xmyd1rk4q4" path="res://assets/2DAssets/test/testchar.png" id="5_nd8wx"]
+[ext_resource type="Script" path="res://area_2d.gd" id="6_3oghg"]
+[ext_resource type="Script" path="res://area_2d_damage.gd" id="7_my2d2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wop5g"]
+size = Vector2(16, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0dve"]
+radius = 48.1664
+
+[node name="player_and_camera" type="Node2D"]
+script = ExtResource("1_e5bb5")
+y_offset = -100
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(608, 80)
+offset = Vector2(8, 0)
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="player" type="CharacterBody2D" parent="."]
+z_index = 1
+position = Vector2(608, 160)
+collision_layer = 4
+collision_mask = 3
+floor_max_angle = 0.0
+floor_snap_length = 0.0
+script = ExtResource("2_fu540")
+ACCEL = 7
+SPEED = 150.0
+JUMP_VELOCITY = -365.0
+DASH_SPEED = 250
+
+[node name="arrow" type="Node2D" parent="player"]
+visible = false
+z_index = 1
+position = Vector2(-64, 8)
+script = ExtResource("3_1tdfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="player/arrow"]
+texture = ExtResource("4_on4bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(8, 8)
+texture = ExtResource("5_nd8wx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(8, 12)
+shape = SubResource("RectangleShape2D_wop5g")
+
+[node name="Area2D" type="Area2D" parent="player"]
+position = Vector2(8, 12)
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("6_3oghg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
+shape = SubResource("CircleShape2D_c0dve")
+
+[node name="Area2D_damage" type="Area2D" parent="player"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("7_my2d2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D_damage"]
+position = Vector2(8, 12)
+shape = SubResource("RectangleShape2D_wop5g")
+
+[node name="coyote_timer" type="Timer" parent="player"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="dash_timer" type="Timer" parent="player"]
+process_callback = 0
+wait_time = 0.25
+one_shot = true
+
+[node name="wallcling_timer" type="Timer" parent="player"]
+process_callback = 0
+one_shot = true
+
+[node name="floor_lockout" type="Timer" parent="player"]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+
+[connection signal="dash_ready" from="player/Area2D" to="player" method="_on_dash_ready"]
+[connection signal="dash_unready" from="player/Area2D" to="player" method="_on_dash_unready"]
+[connection signal="hide_arrow" from="player/Area2D" to="player/arrow" method="_on_hide_arrow"]
+[connection signal="show_arrow" from="player/Area2D" to="player/arrow" method="_on_show_arrow"]
+[connection signal="timeout" from="player/coyote_timer" to="player" method="_on_coyote_timeout"]
+[connection signal="timeout" from="player/dash_timer" to="player" method="_on_dash_timer_timeout"]

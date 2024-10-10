@@ -135,7 +135,7 @@ func player_wallcling():
 	elif Input.is_action_just_pressed("ui_up"):
 		$floor_lockout.start() #prevents the player from regaining jump from touching ground bc godots floor detection near walls is glitchy
 		state = "move"
-		velocity = Vector2(-sqrt(0.5)*clingfacing, sqrt(0.5)) * JUMP_VELOCITY * 1
+		velocity = Vector2(-0.5*clingfacing, sqrt(3)*0.5) * JUMP_VELOCITY * 1.2
 
 
 
