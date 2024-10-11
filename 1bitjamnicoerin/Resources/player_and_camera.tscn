@@ -313,7 +313,6 @@ preload_samples = true
 trigger_once = true
 
 [node name="Music" type="StudioEventEmitter2D" parent="FMOD BASIC"]
-play_event = 1
 event = ExtResource("12_4quae")
 preload_samples = true
 trigger_once = true

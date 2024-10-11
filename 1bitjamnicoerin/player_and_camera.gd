@@ -3,6 +3,7 @@ extends Node
 @onready var Transition = $Transition
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$"FMOD BASIC/Music".play()
 	Transition.play("FADEIN")
 
 

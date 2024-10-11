@@ -184,6 +184,7 @@ func _on_area_2d_damage_death() -> void:
 		
 func _unhandled_key_input(event):
 	if death_timer_triggered and state == "dead" and event.is_pressed():
+			$"../FMOD BASIC/DieMusic".stop()
 			get_tree().reload_current_scene()
 		# do something...
 	
