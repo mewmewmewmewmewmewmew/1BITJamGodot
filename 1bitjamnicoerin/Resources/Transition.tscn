@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvc06y5h5tmuv"]
+
+[ext_resource type="PackedScene" uid="uid://5l2rqxp7dsk8" path="res://Resources/fmod_basic.tscn" id="1_8bx0o"]
+
+[node name="Transition" type="Node2D"]
+position = Vector2(0, -16)
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_8bx0o")]

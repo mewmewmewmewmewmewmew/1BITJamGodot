@@ -1,17 +1,22 @@
-[gd_scene load_steps=67 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=47 format=4 uid="uid://bseibtucckmfu"]
 
+[ext_resource type="EventAsset" uid="uid://bjncs7vwjqn0a" path="res://addons/FMOD/editor/resources/events/{7c5e83dd-f1ec-4a82-88d0-d08b3b3f87f1}.tres" id="1_3jjli"]
 [ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
+[ext_resource type="EventAsset" uid="uid://bdd3ed4ytn538" path="res://addons/FMOD/editor/resources/events/{4a98fc32-bb41-4971-bf7c-e10732f27fca}.tres" id="1_ngntp"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_naaq6"]
+[ext_resource type="EventAsset" uid="uid://b1mx4w0thcuoc" path="res://addons/FMOD/editor/resources/events/{db53821f-6180-4a6f-8981-cf1ad37cbafb}.tres" id="2_tjclm"]
 [ext_resource type="Script" path="res://PlatformProto.gd" id="3_j2n3s"]
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="4_1tq0b"]
 [ext_resource type="Script" path="res://Scenes/Camera_Smooth_Follow.gd" id="4_c1lh1"]
-[ext_resource type="Texture2D" uid="uid://m3saj2ra8xja" path="res://assets/2DAssets/Tilesets/Transition_Spritesheet.png" id="5_2dlfr"]
+[ext_resource type="PackedScene" uid="uid://dsk1h7uwhpgho" path="res://Resources/bat_sprite_2d.tscn" id="6_1nqkk"]
 [ext_resource type="Shader" path="res://assets/Shaders/palette_replace.gdshader" id="6_qdiy8"]
-[ext_resource type="Script" path="res://Play_Placeholder.gd" id="6_ulc7h"]
-[ext_resource type="Script" path="res://enemy_animation_handler.gd" id="8_7dp1j"]
+[ext_resource type="BankAsset" uid="uid://6o56tcwyt4k0" path="res://addons/FMOD/editor/resources/banks/{c06f1ebc-108a-4e29-9144-c41638055cc2}.tres" id="8_xvq3v"]
 [ext_resource type="Texture2D" uid="uid://dhpd0imjf0u7s" path="res://assets/2DAssets/Tilesets/Sprite_LadyLuck.png" id="9_4dbuh"]
+[ext_resource type="PackedScene" uid="uid://cvc06y5h5tmuv" path="res://Resources/Transition.tscn" id="9_7bk47"]
+[ext_resource type="BankAsset" uid="uid://dfqaqbk5cy8py" path="res://addons/FMOD/editor/resources/banks/{58723e68-61f1-026b-170d-4ee8c9f65a5a}.tres" id="9_b2c0h"]
 [ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="10_kb00w"]
+[ext_resource type="PackedScene" uid="uid://dftoc48win36j" path="res://Resources/snake_enemy_container.tscn" id="12_p7wh0"]
 [ext_resource type="PackedScene" uid="uid://igcdf7do7npx" path="res://assets/imported/fade/fade/fade_screen.tscn" id="13_gvr58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c3tf"]
@@ -130,7 +135,7 @@ region = Rect2(288, 160, 32, 32)
 atlas = ExtResource("2_naaq6")
 region = Rect2(32, 64, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ruej0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hipv6"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -240,66 +245,6 @@ _data = {
 "RESET": SubResource("Animation_cx4jj")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8tcbg"]
-atlas = ExtResource("5_2dlfr")
-region = Rect2(0, 0, 640, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7myb8"]
-atlas = ExtResource("5_2dlfr")
-region = Rect2(640, 0, 640, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhbta"]
-atlas = ExtResource("5_2dlfr")
-region = Rect2(1280, 0, 640, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cveo1"]
-atlas = ExtResource("5_2dlfr")
-region = Rect2(1920, 0, 640, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxfcp"]
-atlas = ExtResource("5_2dlfr")
-region = Rect2(2560, 0, 640, 360)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2kahy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8tcbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7myb8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhbta")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cveo1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dxfcp")
-}],
-"loop": false,
-"name": &"FADEIN",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cveo1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhbta")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7myb8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8tcbg")
-}],
-"loop": true,
-"name": &"FADEOUT",
-"speed": 5.0
-}]
-
 [sub_resource type="Theme" id="Theme_o7ynf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f675j"]
@@ -312,219 +257,40 @@ shader_parameter/black_color = null
 shader_parameter/black_replace_color = Color(0.25098, 0.113725, 0.168627, 1)
 shader_parameter/black_color_threshold = 0.407
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ss3d3"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(0, 160, 192, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvu47"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(0, 230, 192, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ibom"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(0, 300, 192, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdk4f"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(0, 370, 192, 70)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_l6o5k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ss3d3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kvu47")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7ibom")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kdk4f")
-}],
-"loop": true,
-"name": &"IDLE",
-"speed": 12.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_47svi"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(192, 162, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fuxee"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(208, 162, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qkbdg"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(224, 162, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i6k4y"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(240, 162, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_i8gq6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_47svi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fuxee")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qkbdg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i6k4y")
-}],
-"loop": true,
-"name": &"IDLE",
-"speed": 12.0
-}]
-
-[sub_resource type="Animation" id="Animation_prgbi"]
-resource_name = "Tongue_Animation"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tpxk"]
-_data = {
-"Tongue_Animation": SubResource("Animation_prgbi")
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dlff2"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(192, 176, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_67563"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(192, 208, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdauw"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(192, 240, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ryuek"]
-atlas = ExtResource("2_naaq6")
-region = Rect2(192, 272, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bgjrp"]
-resource_local_to_scene = true
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlff2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_67563")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tdauw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ryuek")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlff2")
-}],
-"loop": false,
-"name": &"IDLE",
-"speed": 12.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_442ju"]
-resource_local_to_scene = true
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlff2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_67563")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tdauw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ryuek")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlff2")
-}],
-"loop": false,
-"name": &"IDLE",
-"speed": 12.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7wp55"]
-resource_local_to_scene = true
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlff2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_67563")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tdauw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ryuek")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlff2")
-}],
-"loop": false,
-"name": &"IDLE",
-"speed": 12.0
-}]
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cdha5"]
 
 [node name="world_nico" type="Node2D"]
 
-[node name="StudioBankLoader" type="StudioBankLoader" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="FMOD BASIC" type="Node2D" parent="."]
+
+[node name="StudioBankLoader" type="StudioBankLoader" parent="FMOD BASIC"]
 load_on = 1
 preload_sample_data = true
 num_banks = 2
-script = null
+bank_0 = ExtResource("8_xvq3v")
+bank_1 = ExtResource("9_b2c0h")
 
-[node name="StudioListener2D" type="StudioListener2D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
+[node name="StudioListener2D" type="StudioListener2D" parent="FMOD BASIC"]
 
-[node name="StudioEventEmitter2D" type="StudioEventEmitter2D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="Music" type="StudioEventEmitter2D" parent="FMOD BASIC"]
 play_event = 1
+stop_event = 3
+event = ExtResource("1_3jjli")
+preload_samples = true
+
+[node name="Die" type="StudioEventEmitter2D" parent="FMOD BASIC"]
 preload_samples = true
 trigger_once = true
-script = null
+
+[node name="Jump" type="StudioEventEmitter2D" parent="FMOD BASIC"]
+event = ExtResource("1_ngntp")
+preload_samples = true
+trigger_once = true
+
+[node name="Slash" type="StudioEventEmitter2D" parent="FMOD BASIC"]
+event = ExtResource("2_tjclm")
+preload_samples = true
+trigger_once = true
 
 [node name="Start" type="Node2D" parent="."]
 
@@ -565,48 +331,38 @@ tile_map_data = PackedByteArray("AAAAAAcAAAACAAAAAAABAAEAAAAEAAEAAADv/+D/AAABAAA
 tile_set = SubResource("TileSet_5b8up")
 use_kinematic_bodies = true
 
-[node name="Player" type="Node2D" parent="."]
+[node name="temp" type="Node2D" parent="."]
 position = Vector2(0, 448)
 script = ExtResource("4_c1lh1")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="temp"]
 position = Vector2(320, 160)
 script = ExtResource("3_j2n3s")
 
-[node name="FollowPoint" type="Node2D" parent="Player/CharacterBody2D"]
+[node name="FollowPoint" type="Node2D" parent="temp/CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="temp/CharacterBody2D"]
 shape = SubResource("RectangleShape2D_6y4oa")
 
-[node name="BatSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
-material = ExtResource("4_1tq0b")
-sprite_frames = SubResource("SpriteFrames_ruej0")
-animation = &"IDLE"
+[node name="BatSprite2D" parent="temp/CharacterBody2D" instance=ExtResource("6_1nqkk")]
+sprite_frames = SubResource("SpriteFrames_hipv6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/CharacterBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="temp/CharacterBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_vyw22")
 }
 
-[node name="ray_floor" type="RayCast2D" parent="Player/CharacterBody2D"]
+[node name="ray_floor" type="RayCast2D" parent="temp/CharacterBody2D"]
 visible = false
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="temp"]
 position = Vector2(320, 64)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
-[node name="Transition" type="Node2D" parent="Player/Camera2D"]
-visible = false
-position = Vector2(0, -16)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Camera2D/Transition"]
-sprite_frames = SubResource("SpriteFrames_2kahy")
-animation = &"FADEIN"
-script = ExtResource("6_ulc7h")
+[node name="Transition" parent="temp/Camera2D" instance=ExtResource("9_7bk47")]
 
 [node name="UPEND_Title" type="Node2D" parent="."]
-visible = false
 
 [node name="Upend_Text" type="RichTextLabel" parent="UPEND_Title"]
 texture_filter = 1
@@ -636,46 +392,7 @@ scroll_active = false
 material = SubResource("ShaderMaterial_f675j")
 scale = Vector2(100, 100)
 
-[node name="Node_Enemy_Container" type="Node2D" parent="."]
-position = Vector2(320, 0)
-script = ExtResource("8_7dp1j")
-
-[node name="Snake_Animated_Sprite" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
-material = ExtResource("4_1tq0b")
-sprite_frames = SubResource("SpriteFrames_l6o5k")
-animation = &"IDLE"
-frame_progress = 0.473749
-
-[node name="Snake_Tongue_Animated_Sprite" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
-material = ExtResource("4_1tq0b")
-position = Vector2(2, 40)
-sprite_frames = SubResource("SpriteFrames_i8gq6")
-animation = &"IDLE"
-frame = 3
-frame_progress = 1.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node_Enemy_Container"]
-libraries = {
-"": SubResource("AnimationLibrary_1tpxk")
-}
-
-[node name="Snake_Eye_A" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
-material = ExtResource("4_1tq0b")
-position = Vector2(-64, 0)
-sprite_frames = SubResource("SpriteFrames_bgjrp")
-animation = &"IDLE"
-
-[node name="Snake_Eye_B" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
-material = ExtResource("4_1tq0b")
-position = Vector2(2, 0)
-sprite_frames = SubResource("SpriteFrames_442ju")
-animation = &"IDLE"
-
-[node name="Snake_Eye_C" type="AnimatedSprite2D" parent="Node_Enemy_Container"]
-material = ExtResource("4_1tq0b")
-position = Vector2(64, 0)
-sprite_frames = SubResource("SpriteFrames_7wp55")
-animation = &"IDLE"
+[node name="Snake_Enemy_Container" parent="." instance=ExtResource("12_p7wh0")]
 
 [node name="LadyLuck" type="Node2D" parent="."]
 
@@ -683,6 +400,31 @@ animation = &"IDLE"
 material = ExtResource("4_1tq0b")
 position = Vector2(320, -3584)
 texture = ExtResource("9_4dbuh")
+
+[node name="Upend_Text" type="RichTextLabel" parent="LadyLuck"]
+texture_filter = 1
+material = ExtResource("4_1tq0b")
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = -3744.0
+offset_right = 544.0
+offset_bottom = -3712.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o7ynf")
+theme_override_fonts/normal_font = ExtResource("1_6jgsr")
+theme_override_fonts/mono_font = ExtResource("1_6jgsr")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]You are here much too soon...[/center]
+[center]Return in a few weeks, you may get your form yet...[/center]"
+fit_content = true
+scroll_active = false
 
 [node name="ballguy" parent="." instance=ExtResource("10_kb00w")]
 position = Vector2(288, 288)

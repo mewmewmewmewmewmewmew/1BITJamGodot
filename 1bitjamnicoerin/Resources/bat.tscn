@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl0w4qlog3l6n"]
+[gd_scene load_steps=12 format=3 uid="uid://cl0w4qlog3l6n"]
 
 [ext_resource type="Script" path="res://Resources/bat.gd" id="1_7hefl"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="1_t0on4"]
+[ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="2_7logv"]
 [ext_resource type="Script" path="res://Resources/animated_sprite_2d.gd" id="2_q4mbn"]
 [ext_resource type="Script" path="res://Resources/area_2d.gd" id="4_hoky2"]
 
@@ -51,6 +52,7 @@ autostart = true
 [node name="respawn_timer" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_7logv")
 sprite_frames = SubResource("SpriteFrames_jny32")
 offset = Vector2(0.5, 0)
 script = ExtResource("2_q4mbn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bljto8oo0fq40"]
+[gd_scene load_steps=13 format=4 uid="uid://5dde1k6oikqc"]
 
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="1_p327y"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_crfgm"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlfa381bvcr4o"]
+
+[ext_resource type="PackedScene" uid="uid://cdxmiiep0o2oa" path="res://Scenes/levels/new_terrain_gen.tscn" id="1_81y4u"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="NewTerrainGen" parent="." instance=ExtResource("1_81y4u")]

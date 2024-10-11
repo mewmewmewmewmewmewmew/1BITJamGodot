@@ -52,27 +52,27 @@ event_tree = [{
 }, {
 "children": [],
 "item_type": 1,
+"node_name": "DeathSound",
+"path": "event:/DeathSound",
+"resource": ExtResource("8_1qnwb")
+}, {
+"children": [],
+"item_type": 1,
 "node_name": "Jump Sound",
 "path": "event:/Jump Sound",
 "resource": ExtResource("6_w5nlr")
 }, {
 "children": [],
 "item_type": 1,
+"node_name": "Land",
+"path": "event:/Land",
+"resource": ExtResource("7_qv6lt")
+}, {
+"children": [],
+"item_type": 1,
 "node_name": "MainAudio",
 "path": "event:/MainAudio",
 "resource": ExtResource("6_0mvum")
-}, {
-"children": [],
-"item_type": 1,
-"node_name": "New Event",
-"path": "event:/New Event",
-"resource": ExtResource("8_1qnwb")
-}, {
-"children": [],
-"item_type": 1,
-"node_name": "New Event 2",
-"path": "event:/New Event 2",
-"resource": ExtResource("7_qv6lt")
 }, {
 "children": [],
 "item_type": 1,
