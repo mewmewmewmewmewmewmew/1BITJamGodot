@@ -1,9 +1,8 @@
-[gd_scene load_steps=70 format=4 uid="uid://bseibtucckmfu"]
+[gd_scene load_steps=67 format=4 uid="uid://bseibtucckmfu"]
 
 [ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="1_6jgsr"]
 [ext_resource type="Script" path="res://ProcGen.gd" id="1_lwxr1"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_naaq6"]
-[ext_resource type="EventAsset" uid="uid://dp2f8kjnkfagx" path="res://addons/FMOD/editor/resources/events/{8e83e7ce-94de-43a7-9668-4a40b44130f5}.tres" id="3_0cu85"]
 [ext_resource type="Script" path="res://PlatformProto.gd" id="3_j2n3s"]
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="4_1tq0b"]
 [ext_resource type="Script" path="res://Scenes/Camera_Smooth_Follow.gd" id="4_c1lh1"]
@@ -11,9 +10,7 @@
 [ext_resource type="Shader" path="res://assets/Shaders/palette_replace.gdshader" id="6_qdiy8"]
 [ext_resource type="Script" path="res://Play_Placeholder.gd" id="6_ulc7h"]
 [ext_resource type="Script" path="res://enemy_animation_handler.gd" id="8_7dp1j"]
-[ext_resource type="BankAsset" uid="uid://6o56tcwyt4k0" path="res://addons/FMOD/editor/resources/banks/{c06f1ebc-108a-4e29-9144-c41638055cc2}.tres" id="8_xvq3v"]
 [ext_resource type="Texture2D" uid="uid://dhpd0imjf0u7s" path="res://assets/2DAssets/Tilesets/Sprite_LadyLuck.png" id="9_4dbuh"]
-[ext_resource type="BankAsset" uid="uid://dfqaqbk5cy8py" path="res://addons/FMOD/editor/resources/banks/{58723e68-61f1-026b-170d-4ee8c9f65a5a}.tres" id="9_b2c0h"]
 [ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="10_kb00w"]
 [ext_resource type="PackedScene" uid="uid://igcdf7do7npx" path="res://assets/imported/fade/fade/fade_screen.tscn" id="13_gvr58"]
 
@@ -488,21 +485,46 @@ animations = [{
 [node name="world_nico" type="Node2D"]
 
 [node name="StudioBankLoader" type="StudioBankLoader" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 load_on = 1
 preload_sample_data = true
 num_banks = 2
-bank_0 = ExtResource("8_xvq3v")
-bank_1 = ExtResource("9_b2c0h")
+script = null
 
-[node name="StudioListener2D" type="StudioListener2D" parent="." node_paths=PackedStringArray("rigidbody")]
-rigidbody = NodePath("../Player/CharacterBody2D")
+[node name="StudioListener2D" type="StudioListener2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
 
-[node name="StudioEventEmitter2D" type="StudioEventEmitter2D" parent="." node_paths=PackedStringArray("rigidbody")]
+[node name="StudioEventEmitter2D" type="StudioEventEmitter2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 play_event = 1
-event = ExtResource("3_0cu85")
 preload_samples = true
 trigger_once = true
-rigidbody = NodePath("../Player/CharacterBody2D")
+script = null
 
 [node name="Start" type="Node2D" parent="."]
 

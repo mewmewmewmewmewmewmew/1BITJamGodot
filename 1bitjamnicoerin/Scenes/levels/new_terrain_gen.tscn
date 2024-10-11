@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdxmiiep0o2oa"]
+
+[ext_resource type="Script" path="res://Scenes/levels/new_terrain_gen.gd" id="1_q0jom"]
+[ext_resource type="PackedScene" uid="uid://cjwk00nt23cu2" path="res://Levels/level_0.tscn" id="2_oyn0u"]
+[ext_resource type="PackedScene" uid="uid://crak2jupkpk30" path="res://Levels/level_1.tscn" id="3_tkirv"]
+
+[node name="NewTerrainGen" type="Node2D"]
+script = ExtResource("1_q0jom")
+start_section = ExtResource("2_oyn0u")
+sections = Array[PackedScene]([ExtResource("3_tkirv")])
+sections_count = 1
