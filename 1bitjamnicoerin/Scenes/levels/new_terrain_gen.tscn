@@ -1,0 +1,17 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdxmiiep0o2oa"]
+
+[ext_resource type="Script" path="res://Scenes/levels/new_terrain_gen.gd" id="1_q0jom"]
+[ext_resource type="PackedScene" uid="uid://cjwk00nt23cu2" path="res://Levels/level_0.tscn" id="2_oyn0u"]
+[ext_resource type="PackedScene" uid="uid://crak2jupkpk30" path="res://Levels/level_1.tscn" id="3_tkirv"]
+[ext_resource type="PackedScene" uid="uid://om0ltsb5k4k" path="res://Levels/level_Opening_A.tscn" id="4_4eavg"]
+[ext_resource type="PackedScene" uid="uid://dm1u3vq10c1f0" path="res://Levels/level_2.tscn" id="4_ol1mh"]
+[ext_resource type="PackedScene" uid="uid://bljto8oo0fq40" path="res://Levels/level_3.tscn" id="5_0diqt"]
+[ext_resource type="PackedScene" uid="uid://p8tu5m1b7jbj" path="res://Levels/level_Opening_B.tscn" id="5_f5itn"]
+[ext_resource type="PackedScene" uid="uid://ca75cd8ki8wwn" path="res://Levels/level_Opening_C.tscn" id="6_70tqy"]
+[ext_resource type="PackedScene" uid="uid://beq32ki1csb7k" path="res://Levels/level_4.tscn" id="6_dalvy"]
+
+[node name="NewTerrainGen" type="Node2D"]
+script = ExtResource("1_q0jom")
+start_section = ExtResource("2_oyn0u")
+sections = Array[PackedScene]([ExtResource("3_tkirv"), ExtResource("4_ol1mh"), ExtResource("5_0diqt"), ExtResource("6_dalvy")])
+transition_section = Array[PackedScene]([ExtResource("4_4eavg"), ExtResource("5_f5itn"), ExtResource("6_70tqy")])
