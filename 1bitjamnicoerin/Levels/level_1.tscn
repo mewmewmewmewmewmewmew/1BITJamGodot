@@ -141,6 +141,9 @@ duration = 10.0
 [node name="ballguy" parent="." instance=ExtResource("5_r62rf")]
 position = Vector2(0, -146)
 
+[node name="ballguy" parent="ballguy" instance=ExtResource("5_r62rf")]
+position = Vector2(0, -366)
+
 [node name="ballguy2" parent="." instance=ExtResource("5_r62rf")]
 position = Vector2(0, -290)
 
@@ -149,6 +152,12 @@ position = Vector2(0, -218)
 
 [node name="bat2" parent="." instance=ExtResource("4_rr0mi")]
 position = Vector2(0, -234)
+radius = 140.0
+duration = 10.0
+time_offset = 5.0
+
+[node name="bat2" parent="bat2" instance=ExtResource("4_rr0mi")]
+position = Vector2(0, -374)
 radius = 140.0
 duration = 10.0
 time_offset = 5.0

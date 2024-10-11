@@ -36,7 +36,7 @@ var walljump_dir = 1
 @onready var animation_player = $AnimationPlayer
 @onready var _characterBody2D = $CharacterBody2D
 @onready var ray_floor = $ray_floor
-@onready var _animated_sprite = $AnimatedSprite2D
+@onready var _animated_sprite = $BatSprite2D
 
 func _physics_process(delta):
 	match state:

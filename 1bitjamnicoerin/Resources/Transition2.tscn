@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://by0ssryrx2qgf"]
+
+[ext_resource type="Texture2D" uid="uid://m3saj2ra8xja" path="res://assets/2DAssets/Tilesets/Transition_Spritesheet.png" id="1_w6xqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nymq0"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6868d"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_las3e"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m8qm"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ltqa"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12fjg"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxqiv"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18c87"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpmxq"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j01jl"]
+atlas = ExtResource("1_w6xqk")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxhko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nymq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6868d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_las3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m8qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ltqa")
+}],
+"loop": false,
+"name": &"FADEIN",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12fjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxqiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18c87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpmxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j01jl")
+}],
+"loop": false,
+"name": &"FADEOUT",
+"speed": 2.0
+}]
+
+[node name="Transition" type="AnimatedSprite2D"]
+position = Vector2(8, -80)
+sprite_frames = SubResource("SpriteFrames_cxhko")
+animation = &"FADEIN"

@@ -5,8 +5,8 @@
 [resource]
 shader = ExtResource("1_b65ry")
 shader_parameter/white_color = Color(1, 1, 1, 1)
-shader_parameter/white_replace_color = Color(0.000455609, 1.24756e-06, 1.69781e-06, 1)
+shader_parameter/white_replace_color = Color(0, 0, 0, 1)
 shader_parameter/white_color_threshold = 0.206
 shader_parameter/black_color = Color(0, 0, 0, 1)
-shader_parameter/black_replace_color = Color(0.993234, 0.842437, 0.70893, 1)
+shader_parameter/black_replace_color = Color(0.983431, 0.758446, 0.741762, 1)
 shader_parameter/black_color_threshold = 0.255
