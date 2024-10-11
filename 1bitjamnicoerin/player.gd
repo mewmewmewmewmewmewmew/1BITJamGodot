@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var _animated_sprite = $BatSprite2D
 @export var ACCEL = 10
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -300.0

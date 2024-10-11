@@ -209,7 +209,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("BatSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -224,7 +224,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("BatSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -578,7 +578,7 @@ script = ExtResource("3_j2n3s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
 shape = SubResource("RectangleShape2D_6y4oa")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
+[node name="BatSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
 material = ExtResource("4_1tq0b")
 sprite_frames = SubResource("SpriteFrames_ruej0")
 animation = &"IDLE"
@@ -597,6 +597,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
 [node name="Transition" type="Node2D" parent="Player/Camera2D"]
+visible = false
 position = Vector2(0, -16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Camera2D/Transition"]
