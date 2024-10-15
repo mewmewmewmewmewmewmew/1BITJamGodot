@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://emlxuwfx4306"]
+[gd_scene load_steps=9 format=3 uid="uid://emlxuwfx4306"]
 
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="1_7kgs8"]
 [ext_resource type="Script" path="res://Scenes/VFX/explosion_anim.gd" id="1_qa1ap"]
+[ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="2_5pvk7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u0ds4"]
 atlas = ExtResource("1_7kgs8")
@@ -46,7 +47,6 @@ animations = [{
 script = ExtResource("1_qa1ap")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_5pvk7")
 sprite_frames = SubResource("SpriteFrames_1ujuh")
 animation = &"EXPLODE"
-frame = 1
-frame_progress = 0.0817631
