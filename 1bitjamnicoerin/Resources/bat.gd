@@ -40,10 +40,13 @@ func _process(delta: float) -> void:
 func _on_area_2d_damage() -> void:
 	$Area2D/CollisionShape2D.disabled = true #turns off the slash dash point
 	$Area2D_damage/CollisionShape2D.disabled = true #turns off damage
+	$ExplosionParticleSystem._call_all_explosions()
+	$AnimatedSprite2D.play("DAZED")
 	#$Timer.paused = true #pauses movement
 	$respawn_timer.start()
 	
 func _on_respawn_timer_timeout() -> void:
 	$Area2D/CollisionShape2D.disabled = false #turns off the slash dash point
 	$Area2D_damage/CollisionShape2D.disabled = false #turns off damage
+	$AnimatedSprite2D.play("IDLE")
 	#$Timer.paused = false #pauses movement

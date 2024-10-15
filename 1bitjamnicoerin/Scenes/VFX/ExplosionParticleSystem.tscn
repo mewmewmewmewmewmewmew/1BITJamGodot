@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b22rg6v65fuis"]
+
+[ext_resource type="Script" path="res://ExplosionParticleSystem.gd" id="1_gspgf"]
+
+[node name="ExplosionParticleSystem" type="Node2D"]
+script = ExtResource("1_gspgf")
