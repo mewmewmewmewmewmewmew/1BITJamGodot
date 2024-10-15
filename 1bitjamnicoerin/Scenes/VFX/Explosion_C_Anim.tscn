@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk8jcerdplsv7"]
+
+[ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="1_cf3ll"]
+[ext_resource type="Script" path="res://Scenes/VFX/explosion_anim.gd" id="2_u8ga1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6jbj"]
+atlas = ExtResource("1_cf3ll")
+region = Rect2(112, 96, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cua3"]
+atlas = ExtResource("1_cf3ll")
+region = Rect2(112, 112, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pr22"]
+atlas = ExtResource("1_cf3ll")
+region = Rect2(112, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc65k"]
+atlas = ExtResource("1_cf3ll")
+region = Rect2(112, 144, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ujuh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6jbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cua3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pr22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc65k")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"EXPLODE",
+"speed": 7.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2_u8ga1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1ujuh")
+animation = &"EXPLODE"
+frame = 3
+frame_progress = 1.0

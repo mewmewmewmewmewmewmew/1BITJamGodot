@@ -1,10 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl0w4qlog3l6n"]
+[gd_scene load_steps=17 format=3 uid="uid://cl0w4qlog3l6n"]
 
 [ext_resource type="Script" path="res://Resources/bat.gd" id="1_7hefl"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="1_t0on4"]
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="2_7logv"]
+[ext_resource type="PackedScene" uid="uid://b22rg6v65fuis" path="res://Scenes/VFX/ExplosionParticleSystem.tscn" id="2_e6ldg"]
 [ext_resource type="Script" path="res://Resources/animated_sprite_2d.gd" id="2_q4mbn"]
 [ext_resource type="Script" path="res://Resources/area_2d.gd" id="4_hoky2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwioe"]
+atlas = ExtResource("1_t0on4")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riguv"]
+atlas = ExtResource("1_t0on4")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o22sv"]
+atlas = ExtResource("1_t0on4")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64v2g"]
+atlas = ExtResource("1_t0on4")
+region = Rect2(192, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dpxys"]
 atlas = ExtResource("1_t0on4")
@@ -22,6 +39,23 @@ region = Rect2(128, 64, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nwioe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riguv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o22sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64v2g")
+}],
+"loop": true,
+"name": &"DAZED",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_dpxys")
 }, {
 "duration": 1.0,
@@ -31,7 +65,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_cnpm1")
 }],
 "loop": true,
-"name": &"default",
+"name": &"IDLE",
 "speed": 5.0
 }]
 
@@ -44,6 +78,8 @@ radius = 8.0
 [node name="bat" type="Node2D"]
 script = ExtResource("1_7hefl")
 
+[node name="ExplosionParticleSystem" parent="." instance=ExtResource("2_e6ldg")]
+
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 5.0
@@ -54,6 +90,7 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("2_7logv")
 sprite_frames = SubResource("SpriteFrames_jny32")
+animation = &"DAZED"
 offset = Vector2(0.5, 0)
 script = ExtResource("2_q4mbn")
 
