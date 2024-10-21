@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var animated_sprite = $BatSprite2D
-@onready var anim_trans = $"../Transition"
 @export var ACCEL = 10
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -300.0
@@ -27,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("IDLE")
 		#handles dash
 		if Input.is_action_just_pressed("ui_dash") and dash_f == true:
-			$"../FMOD BASIC/Slash".play()
+			Globals.fmod_basics.get_node("Slash").play()
 			var distance = global_position.distance_to($Area2D.closest.global_position)
 			$dash_timer.wait_time = DASH_DURATION + (distance/DASH_SPEED) #adds compensation time
 			$dash_timer.start() #ends the dash after a certain amount of time
@@ -60,7 +59,7 @@ func player_move(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and jump_f == true and state != "dead" :
 		velocity.y = JUMP_VELOCITY
-		$"../FMOD BASIC/Jump".play()
+		Globals.fmod_basics.get_node("Jump").play()
 		jump_f = false
 		$coyote_timer.stop()
 
@@ -121,7 +120,7 @@ func player_dash(delta):
 			velocity = Vector2(0,0)
 			$wallcling_timer.start()
 			$dash_timer.stop()
-			$"../FMOD BASIC/LandWallCling".play()
+			Globals.fmod_basics.get_node("LandWallCling").play()
 		elif x.get_normal() == Vector2(-1, 0):
 			invincible = false #for dashing through enemies
 			position += Vector2(-1,0) #prevents clipping
@@ -131,7 +130,7 @@ func player_dash(delta):
 			velocity = Vector2(0,0)
 			$wallcling_timer.start()
 			$dash_timer.stop()
-			$"../FMOD BASIC/LandWallCling".play()
+			Globals.fmod_basics.get_node("LandWallCling").play()
 		else:
 			velocity = Vector2(0,0)
 
@@ -178,15 +177,11 @@ func _on_area_2d_damage_death() -> void:
 		triggered = true
 		fade_out.emit()
 		animated_sprite.play("DEATH")
-		$"../Transition".play("FADEOUT")
-		$"../FMOD BASIC/Die".play()
-		$"../FMOD BASIC/DieMusic".play()
-		$"../FMOD BASIC/Music".stop()
 		$death_timer.start(4)
 		
 func _unhandled_key_input(event):
 	if death_timer_triggered and state == "dead" and event.is_pressed():
-			$"../FMOD BASIC/DieMusic".stop()
+			Globals.fmod_basics.get_node("DieMusic").stop()
 			get_tree().reload_current_scene()
 		# do something...
 	

@@ -1,7 +1,108 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlfa381bvcr4o"]
+[gd_scene load_steps=16 format=3 uid="uid://dlfa381bvcr4o"]
 
 [ext_resource type="PackedScene" uid="uid://cdxmiiep0o2oa" path="res://Scenes/levels/new_terrain_gen.tscn" id="1_81y4u"]
+[ext_resource type="Script" path="res://Scenes/main_scene.gd" id="1_u5aev"]
+[ext_resource type="Script" path="res://Scenes/ui.gd" id="2_glfko"]
+[ext_resource type="PackedScene" uid="uid://by0ssryrx2qgf" path="res://Resources/Transition2.tscn" id="2_u62ln"]
+[ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="3_o7nfb"]
+[ext_resource type="FontFile" uid="uid://fe7b322j63j1" path="res://assets/2DAssets/Fonts/Saga_8/Saga 8.ttf" id="4_ajir4"]
+[ext_resource type="BankAsset" uid="uid://6o56tcwyt4k0" path="res://addons/FMOD/editor/resources/banks/{c06f1ebc-108a-4e29-9144-c41638055cc2}.tres" id="6_4dvxh"]
+[ext_resource type="BankAsset" uid="uid://dfqaqbk5cy8py" path="res://addons/FMOD/editor/resources/banks/{58723e68-61f1-026b-170d-4ee8c9f65a5a}.tres" id="7_rk1ax"]
+[ext_resource type="EventAsset" uid="uid://bjncs7vwjqn0a" path="res://addons/FMOD/editor/resources/events/{7c5e83dd-f1ec-4a82-88d0-d08b3b3f87f1}.tres" id="8_8g06d"]
+[ext_resource type="EventAsset" uid="uid://dp2f8kjnkfagx" path="res://addons/FMOD/editor/resources/events/{8e83e7ce-94de-43a7-9668-4a40b44130f5}.tres" id="9_gb3b5"]
+[ext_resource type="EventAsset" uid="uid://dgtch2itydovl" path="res://addons/FMOD/editor/resources/events/{8e492a6e-27fb-45f0-ad76-05cd9b5d54d2}.tres" id="10_i1j1w"]
+[ext_resource type="EventAsset" uid="uid://cphldoj3fi68f" path="res://addons/FMOD/editor/resources/events/{78b3f09f-6443-495b-a484-a98169d5419a}.tres" id="11_kd7rs"]
+[ext_resource type="EventAsset" uid="uid://bdd3ed4ytn538" path="res://addons/FMOD/editor/resources/events/{4a98fc32-bb41-4971-bf7c-e10732f27fca}.tres" id="12_j74uo"]
+[ext_resource type="EventAsset" uid="uid://b1mx4w0thcuoc" path="res://addons/FMOD/editor/resources/events/{db53821f-6180-4a6f-8981-cf1ad37cbafb}.tres" id="13_dhbvu"]
+
+[sub_resource type="Theme" id="Theme_x8hxl"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_u5aev")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_glfko")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Transition" parent="UI/Control" instance=ExtResource("2_u62ln")]
+texture_repeat = 2
+position = Vector2(320, 180)
+animation = &"FADEOUT"
+
+[node name="DeathText" type="RichTextLabel" parent="UI/Control/Transition"]
+visible = false
+texture_filter = 1
+material = ExtResource("3_o7nfb")
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -456.0
+offset_top = -180.0
+offset_right = -200.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_x8hxl")
+theme_override_fonts/normal_font = ExtResource("4_ajir4")
+theme_override_fonts/mono_font = ExtResource("4_ajir4")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]YOU DIED [/center]
+[center]play again? [/center]
+[center](press any key) [/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Transition" parent="UI/Control/Transition" instance=ExtResource("2_u62ln")]
+texture_repeat = 2
+position = Vector2(0, -362)
+animation = &"FADEOUT"
 
 [node name="NewTerrainGen" parent="." instance=ExtResource("1_81y4u")]
+
+[node name="FMOD BASIC" type="Node2D" parent="."]
+
+[node name="StudioBankLoader" type="StudioBankLoader" parent="FMOD BASIC"]
+load_on = 1
+preload_sample_data = true
+num_banks = 2
+bank_0 = ExtResource("6_4dvxh")
+bank_1 = ExtResource("7_rk1ax")
+
+[node name="StudioListener2D" type="StudioListener2D" parent="FMOD BASIC"]
+
+[node name="DieMusic" type="StudioEventEmitter2D" parent="FMOD BASIC"]
+event = ExtResource("8_8g06d")
+preload_samples = true
+trigger_once = true
+
+[node name="Music" type="StudioEventEmitter2D" parent="FMOD BASIC"]
+event = ExtResource("9_gb3b5")
+preload_samples = true
+trigger_once = true
+
+[node name="Die" type="StudioEventEmitter2D" parent="FMOD BASIC"]
+event = ExtResource("10_i1j1w")
+preload_samples = true
+
+[node name="LandWallCling" type="StudioEventEmitter2D" parent="FMOD BASIC"]
+event = ExtResource("11_kd7rs")
+preload_samples = true
+
+[node name="Jump" type="StudioEventEmitter2D" parent="FMOD BASIC"]
+event = ExtResource("12_j74uo")
+preload_samples = true
+
+[node name="Slash" type="StudioEventEmitter2D" parent="FMOD BASIC"]
+event = ExtResource("13_dhbvu")
+preload_samples = true

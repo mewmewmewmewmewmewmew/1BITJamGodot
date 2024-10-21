@@ -9,23 +9,31 @@ extends Node2D
 
 @export var sections_count := 10
 
-
-func _ready() -> void:
-	generate_terrain()
-
+var _start_section_node: Node2D
+var _player_spawn_point: Vector2 = Vector2.ZERO
 
 func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_Y):
 		generate_terrain()
 
 
+func place_player(player):
+	if _start_section_node == null:
+		return
+	
+	_start_section_node.add_child(player)
+	player.global_position = _player_spawn_point
+
+
 func generate_terrain():
 	for child in get_children():
 		child.queue_free()
 	
-	var start_instance = start_section.instantiate()
+	_start_section_node = start_section.instantiate()
+	add_child(_start_section_node)
 	
-	add_child(start_instance)
+	if _start_section_node.has_node("PlayerSpawnPoint"):
+		_player_spawn_point = _start_section_node.get_node("PlayerSpawnPoint").global_position
 	
 	for i in range(sections_count):
 		var transition_instance = transition_section.pick_random().instantiate()
