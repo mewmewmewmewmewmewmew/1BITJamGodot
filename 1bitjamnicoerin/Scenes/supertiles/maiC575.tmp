@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cll78q5q8mcs7"]
+
+[ext_resource type="Script" path="res://Scenes/supertiles/main_supertile.gd" id="1_p8rph"]
+[ext_resource type="PackedScene" uid="uid://jk7py31upjwm" path="res://Levels/level_template.tscn" id="1_uu53q"]
+
+[node name="MainSupertile" type="Node2D"]
+script = ExtResource("1_p8rph")
+
+[node name="Node2D" parent="." instance=ExtResource("1_uu53q")]

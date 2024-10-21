@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ivdyate4438j" path="res://assets/2DAssets/test/arrow.png" id="6_nh481"]
 [ext_resource type="Script" path="res://block_7.gd" id="7_exms8"]
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="9_xiw67"]
-[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="10_cv28k"]
+[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/Objects/ballguy.tscn" id="10_cv28k"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="10_kd7s1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hgfmf"]

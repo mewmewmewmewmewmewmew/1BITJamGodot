@@ -1,38 +1,38 @@
 [gd_scene load_steps=17 format=3 uid="uid://cl0w4qlog3l6n"]
 
-[ext_resource type="Script" path="res://Resources/bat.gd" id="1_7hefl"]
-[ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="1_t0on4"]
-[ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="2_7logv"]
-[ext_resource type="PackedScene" uid="uid://b22rg6v65fuis" path="res://Scenes/VFX/ExplosionParticleSystem.tscn" id="2_e6ldg"]
-[ext_resource type="Script" path="res://Resources/animated_sprite_2d.gd" id="2_q4mbn"]
-[ext_resource type="Script" path="res://Resources/area_2d.gd" id="4_hoky2"]
+[ext_resource type="Script" path="res://Resources/bat.gd" id="1_nfs3d"]
+[ext_resource type="PackedScene" uid="uid://b22rg6v65fuis" path="res://Scenes/VFX/ExplosionParticleSystem.tscn" id="2_0cwoq"]
+[ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="3_b6s0u"]
+[ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="4_wyy24"]
+[ext_resource type="Script" path="res://Resources/animated_sprite_2d.gd" id="5_urvju"]
+[ext_resource type="Script" path="res://Resources/area_2d.gd" id="6_r8o57"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nwioe"]
-atlas = ExtResource("1_t0on4")
+atlas = ExtResource("4_wyy24")
 region = Rect2(160, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_riguv"]
-atlas = ExtResource("1_t0on4")
+atlas = ExtResource("4_wyy24")
 region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o22sv"]
-atlas = ExtResource("1_t0on4")
+atlas = ExtResource("4_wyy24")
 region = Rect2(160, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_64v2g"]
-atlas = ExtResource("1_t0on4")
+atlas = ExtResource("4_wyy24")
 region = Rect2(192, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dpxys"]
-atlas = ExtResource("1_t0on4")
+atlas = ExtResource("4_wyy24")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tjm2"]
-atlas = ExtResource("1_t0on4")
+atlas = ExtResource("4_wyy24")
 region = Rect2(128, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnpm1"]
-atlas = ExtResource("1_t0on4")
+atlas = ExtResource("4_wyy24")
 region = Rect2(128, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jny32"]
@@ -76,9 +76,9 @@ radius = 0.0
 radius = 8.0
 
 [node name="bat" type="Node2D"]
-script = ExtResource("1_7hefl")
+script = ExtResource("1_nfs3d")
 
-[node name="ExplosionParticleSystem" parent="." instance=ExtResource("2_e6ldg")]
+[node name="ExplosionParticleSystem" parent="." instance=ExtResource("2_0cwoq")]
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
@@ -88,16 +88,16 @@ autostart = true
 [node name="respawn_timer" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = ExtResource("2_7logv")
+material = ExtResource("3_b6s0u")
 sprite_frames = SubResource("SpriteFrames_jny32")
 animation = &"DAZED"
 offset = Vector2(0.5, 0)
-script = ExtResource("2_q4mbn")
+script = ExtResource("5_urvju")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 64
 collision_mask = 64
-script = ExtResource("4_hoky2")
+script = ExtResource("6_r8o57")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_488nt")

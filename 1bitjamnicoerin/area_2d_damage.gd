@@ -11,5 +11,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if has_overlapping_areas() == true and player.invincible == false:
 		death.emit()
-		print('taunty')
 		
