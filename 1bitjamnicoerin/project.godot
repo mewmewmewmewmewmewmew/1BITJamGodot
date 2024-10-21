@@ -21,6 +21,7 @@ boot_splash/minimum_display_time=1000
 [autoload]
 
 FMODRuntime="*res://addons/FMOD/runtime/fmod_runtime_manager.gd"
+Globals="*res://globals.gd"
 
 [display]
 

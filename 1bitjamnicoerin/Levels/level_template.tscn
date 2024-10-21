@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://jk7py31upjwm"]
+[gd_scene load_steps=13 format=4 uid="uid://jk7py31upjwm"]
 
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="1_t6s2h"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_ve41r"]
-[ext_resource type="PackedScene" uid="uid://cff32cgsbka2f" path="res://Resources/player_and_camera.tscn" id="3_220ap"]
 [ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/Objects/ballguy.tscn" id="4_wu5qc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hgfmf"]
@@ -133,9 +132,6 @@ position = Vector2(928, 256)
 tile_map_data = PackedByteArray("AADv//j/AAABAAAAAADv//n/AAABAAAAAADv//r/AAABAAAAAADv//v/AAABAAAAAADv//z/AAABAAAAAADv//3/AAABAAAAAADv//7/AAABAAAAAADv////AAABAAAAAADw////AAAAAAAAAADx////AAAAAAAAAADy////AAAAAAAAAADz////AAAAAAAAAAD0////AAAAAAAAAAD1////AAAAAAAAAAD2////AAAAAAAAAAD3////AAAAAAAAAAD4////AAAAAAAAAAD5////AAAAAAAAAAD6////AAAAAAAAAAD7////AAAAAAAAAAD8//j/AAABAAAAAAD8//n/AAABAAAAAAD8//r/AAABAAAAAAD8//v/AAABAAAAAAD8//z/AAABAAAAAAD8//3/AAABAAAAAAD8//7/AAABAAAAAAD8////AAABAAAAAADv//X/AAABAAAAAADv//b/AAABAAAAAADv//f/AAABAAAAAAD8//X/AAABAAAAAAD8//b/AAABAAAAAAD8//f/AAABAAAAAADx//v/AAAAAAQAAADy//r/AAAAAAQAAADz//r/AAAAAAQAAADv/+r/AAABAAAAAADv/+v/AAABAAAAAADv/+z/AAABAAAAAADv/+3/AAABAAAAAADv/+7/AAABAAAAAADv/+//AAABAAAAAADv//D/AAABAAAAAADv//H/AAABAAAAAADv//L/AAABAAAAAADv//P/AAABAAAAAADv//T/AAABAAAAAAD8/+r/AAABAAAAAAD8/+v/AAABAAAAAAD8/+z/AAABAAAAAAD8/+3/AAABAAAAAAD8/+7/AAABAAAAAAD8/+//AAABAAAAAAD8//D/AAABAAAAAAD8//H/AAABAAAAAAD8//L/AAABAAAAAAD8//P/AAABAAAAAAD8//T/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_t3cu4")
 use_kinematic_bodies = true
-
-[node name="player_and_camera" parent="." instance=ExtResource("3_220ap")]
-position = Vector2(-8, 0)
 
 [node name="ballguy" parent="." instance=ExtResource("4_wu5qc")]
 position = Vector2(608, 211)

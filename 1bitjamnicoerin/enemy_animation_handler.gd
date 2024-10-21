@@ -24,8 +24,8 @@ func _process(delta: float) -> void:
 # Function to be called every 2 seconds
 func call_repeated_function():
 	_Blinks()
-	print("Function called!")
-	
+
+
 func _Blinks():
 	for i in range(4):
 		if i == 1 :

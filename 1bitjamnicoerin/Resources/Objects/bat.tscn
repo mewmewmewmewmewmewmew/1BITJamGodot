@@ -90,7 +90,7 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("3_b6s0u")
 sprite_frames = SubResource("SpriteFrames_jny32")
-animation = &"DAZED"
+animation = &"IDLE"
 offset = Vector2(0.5, 0)
 script = ExtResource("5_urvju")
 
