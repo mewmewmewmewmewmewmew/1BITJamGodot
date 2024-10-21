@@ -1,0 +1,15 @@
+[gd_scene load_steps=9 format=3 uid="uid://cll78q5q8mcs7"]
+
+[ext_resource type="Script" path="res://Scenes/supertiles/main_supertile.gd" id="1_p8rph"]
+[ext_resource type="PackedScene" uid="uid://0ymlyxo6a2dw" path="res://Scenes/supertiles/room_border.tscn" id="2_6oeus"]
+[ext_resource type="PackedScene" uid="uid://cxnbgkei0u5lk" path="res://Scenes/supertiles/tile1.tscn" id="2_v27r7"]
+[ext_resource type="PackedScene" uid="uid://iicrxuj26eef" path="res://Scenes/supertiles/tile2.tscn" id="3_t1oaf"]
+[ext_resource type="PackedScene" uid="uid://ct3ybmluprjgt" path="res://Scenes/supertiles/tile3.tscn" id="4_3ipsa"]
+[ext_resource type="PackedScene" uid="uid://cvaoeyxreccca" path="res://Scenes/supertiles/tile4.tscn" id="5_5gi1u"]
+[ext_resource type="PackedScene" uid="uid://c6lbi81fwkq0c" path="res://Scenes/supertiles/tile5.tscn" id="6_0572p"]
+[ext_resource type="PackedScene" uid="uid://dljlq6xprqxph" path="res://Scenes/supertiles/tile6.tscn" id="7_h10ur"]
+
+[node name="MainSupertile" type="Node2D"]
+script = ExtResource("1_p8rph")
+borders = Array[PackedScene]([ExtResource("2_6oeus")])
+tiles = Array[PackedScene]([ExtResource("2_v27r7"), ExtResource("3_t1oaf"), ExtResource("4_3ipsa"), ExtResource("5_5gi1u"), ExtResource("6_0572p"), ExtResource("7_h10ur")])

@@ -2,8 +2,8 @@
 
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="1_ia6dq"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_xg0fj"]
-[ext_resource type="PackedScene" uid="uid://cl0w4qlog3l6n" path="res://Resources/bat.tscn" id="4_2iiml"]
-[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="4_4mn5h"]
+[ext_resource type="PackedScene" uid="uid://cl0w4qlog3l6n" path="res://Resources/Objects/bat.tscn" id="4_2iiml"]
+[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/Objects/ballguy.tscn" id="4_4mn5h"]
 [ext_resource type="PackedScene" uid="uid://dftoc48win36j" path="res://Resources/snake_enemy_container.tscn" id="5_aqyhi"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hgfmf"]

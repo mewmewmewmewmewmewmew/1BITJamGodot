@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -300.0
 @export var DASH_SPEED = 300
+@export var DASH_DURATION = 0.25
 
 var jump_f := false #jump flag, allows the player to jump
 var dash_f := false #dash flag, allows the player to dash
@@ -18,7 +19,8 @@ var triggered = false
 var death_timer_triggered = false
 signal fade_out
 
-
+func _ready() -> void:
+	$dash_timer.wait_time = DASH_DURATION
 
 func _physics_process(delta: float) -> void:
 	if state == "move":
@@ -26,7 +28,8 @@ func _physics_process(delta: float) -> void:
 		#handles dash
 		if Input.is_action_just_pressed("ui_dash") and dash_f == true:
 			$"../FMOD BASIC/Slash".play()
-			collision_mask = 0b0001 #turns one way collisions back of
+			var distance = global_position.distance_to($Area2D.closest.global_position)
+			$dash_timer.wait_time = DASH_DURATION + (distance/DASH_SPEED) #adds compensation time
 			$dash_timer.start() #ends the dash after a certain amount of time
 			velocity = DASH_SPEED * dash_dir
 			invincible = true
@@ -45,7 +48,6 @@ func _physics_process(delta: float) -> void:
 
 func player_move(delta):
 	if is_on_floor() and $floor_lockout.is_stopped():
-		print
 		jump_f = true
 		$coyote_timer.stop()
 	# Add the gravity.
@@ -107,20 +109,20 @@ func player_move(delta):
 func player_dash(delta):
 	var x = move_and_collide(velocity*delta)
 	#code for initiating wallclings
+	jump_f = false
 	if x != null:
 		if x.get_normal() == Vector2(1, 0): #if colliding with a right facing wall
-			collision_mask = 0b0011 #turns one way collisions back on
 			invincible = false #for dashing through enemies
 			position += Vector2(1,0) #prevents clipping
 			state = "wall cling"
 			jump_f = false
+			$coyote_timer.stop()
 			clingfacing = 1
 			velocity = Vector2(0,0)
 			$wallcling_timer.start()
 			$dash_timer.stop()
 			$"../FMOD BASIC/LandWallCling".play()
 		elif x.get_normal() == Vector2(-1, 0):
-			collision_mask = 0b0011 #turns one way collisions back on
 			invincible = false #for dashing through enemies
 			position += Vector2(-1,0) #prevents clipping
 			state = "wall cling"
@@ -165,10 +167,10 @@ func _on_coyote_timeout() -> void:
 	jump_f = false
 
 func _on_dash_timer_timeout() -> void:
-	collision_mask = 0b0011 #turns one way collisions back on
 	invincible = false #for dashing through enemies
 	state = "move"
-
+	jump_f = false
+	$floor_lockout.start()
 
 func _on_area_2d_damage_death() -> void:
 	state = "dead"
