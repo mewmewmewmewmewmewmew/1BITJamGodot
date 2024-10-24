@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=4 uid="uid://cjwk00nt23cu2"]
+[gd_scene load_steps=14 format=4 uid="uid://cjwk00nt23cu2"]
 
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="1_4nlyx"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_l0a6n"]
-[ext_resource type="PackedScene" uid="uid://cff32cgsbka2f" path="res://Resources/player_and_camera.tscn" id="3_dc6wn"]
 [ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/Objects/ballguy.tscn" id="10_jgsaa"]
 [ext_resource type="PackedScene" uid="uid://cl0w4qlog3l6n" path="res://Resources/Objects/bat.tscn" id="11_3nmi1"]
 
@@ -119,127 +118,6 @@ pattern_2 = SubResource("TileMapPattern_52mt0")
 pattern_3 = SubResource("TileMapPattern_387ck")
 pattern_4 = SubResource("TileMapPattern_53ntv")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c73fm"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1ae5"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(256, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nm582"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(256, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1p3n"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(256, 224, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_udft7"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(256, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pt57s"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(256, 288, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_csew2"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fgl0m"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r8bll"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pevsm"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4w3uu"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_scymd"]
-atlas = ExtResource("2_l0a6n")
-region = Rect2(288, 160, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cq2ou"]
-resource_local_to_scene = true
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c73fm")
-}],
-"loop": true,
-"name": &"DASH",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f1ae5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nm582")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c1p3n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_udft7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pt57s")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"DEATH",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_csew2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fgl0m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r8bll")
-}],
-"loop": true,
-"name": &"IDLE",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pevsm")
-}],
-"loop": true,
-"name": &"JUMP",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4w3uu")
-}],
-"loop": true,
-"name": &"WALK",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_scymd")
-}],
-"loop": true,
-"name": &"WALLCLING",
-"speed": 5.0
-}]
-
 [node name="Node2D" type="Node2D"]
 
 [node name="tilemap_layer_background" type="TileMapLayer" parent="."]
@@ -254,11 +132,8 @@ tile_map_data = PackedByteArray("AAD2//7/AAABAAAAAAD2////AAABAAAAAAD3//7/AAABAAA
 tile_set = SubResource("TileSet_t3cu4")
 use_kinematic_bodies = true
 
-[node name="player_and_camera" parent="." instance=ExtResource("3_dc6wn")]
-position = Vector2(-612, -378)
-
-[node name="BatSprite2D" parent="player_and_camera/player" index="2"]
-sprite_frames = SubResource("SpriteFrames_cq2ou")
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-4, -218)
 
 [node name="ballguy" parent="." instance=ExtResource("10_jgsaa")]
 position = Vector2(4, -450)
@@ -269,5 +144,3 @@ position = Vector2(172, -586)
 [node name="bat" parent="." instance=ExtResource("11_3nmi1")]
 position = Vector2(4, -746)
 mode = "vertical"
-
-[editable path="player_and_camera"]
