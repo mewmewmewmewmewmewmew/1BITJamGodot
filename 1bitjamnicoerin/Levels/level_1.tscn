@@ -2,8 +2,8 @@
 
 [ext_resource type="Material" uid="uid://bsj8qsn1xveqe" path="res://Scenes/Palette_replace_material.tres" id="1_m5hhe"]
 [ext_resource type="Texture2D" uid="uid://cfii4c47vikgw" path="res://assets/2DAssets/Tilesets/Upend_Environment_Spritesheet.png" id="2_5xm11"]
-[ext_resource type="PackedScene" uid="uid://cl0w4qlog3l6n" path="res://Resources/bat.tscn" id="4_rr0mi"]
-[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="5_r62rf"]
+[ext_resource type="PackedScene" uid="uid://cl0w4qlog3l6n" path="res://Resources/Objects/bat.tscn" id="4_rr0mi"]
+[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/Objects/ballguy.tscn" id="5_r62rf"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hgfmf"]
 tile_data = PackedInt32Array(65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 65537, 65536, 0, 458753, 65536, 0, 65538, 65536, 0, 458754, 65536, 0, 65539, 65536, 0, 458755, 65536, 0, 4, 65536, 0, 65540, 65536, 0, 458756, 65536, 0, 524292, 65536, 0, 589828, 65536, 0, 655364, 65536, 0, 720900, 65536, 0, 196615, 0, 0, 196616, 0, 0, 393224, 131072, 0, 196617, 0, 0, 12, 65536, 0, 65548, 65536, 0, 131084, 65536, 0, 196620, 65536, 0, 262156, 65536, 0, 327692, 65536, 0, 655372, 65536, 0, 720908, 65536, 0, 327693, 65536, 0, 655373, 65536, 0, 327694, 65536, 0, 655374, 65536, 0, 327695, 65536, 0, 655375, 65536, 0, 393232, 65536, 0, 458768, 65536, 0, 524304, 65536, 0, 589840, 65536, 0, 655376, 65536, 0)

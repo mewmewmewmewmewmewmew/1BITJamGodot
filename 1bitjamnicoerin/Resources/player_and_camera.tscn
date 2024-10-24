@@ -162,7 +162,7 @@ animations = [{
 size = Vector2(16, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c0dve"]
-radius = 134.0
+radius = 56.1427
 
 [sub_resource type="Theme" id="Theme_x8hxl"]
 
@@ -174,12 +174,14 @@ y_offset = -100
 z_index = 1
 position = Vector2(608, 160)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 floor_max_angle = 0.0
 floor_snap_length = 0.0
 script = ExtResource("2_fu540")
 ACCEL = 7
 SPEED = 150.0
+JUMP_VELOCITY = -260.0
+DASH_DURATION = 0.1
 
 [node name="arrow" type="Node2D" parent="player"]
 z_index = 1

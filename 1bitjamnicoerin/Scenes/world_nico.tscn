@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dhpd0imjf0u7s" path="res://assets/2DAssets/Tilesets/Sprite_LadyLuck.png" id="9_4dbuh"]
 [ext_resource type="PackedScene" uid="uid://cvc06y5h5tmuv" path="res://Resources/Transition.tscn" id="9_7bk47"]
 [ext_resource type="BankAsset" uid="uid://dfqaqbk5cy8py" path="res://addons/FMOD/editor/resources/banks/{58723e68-61f1-026b-170d-4ee8c9f65a5a}.tres" id="9_b2c0h"]
-[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/ballguy.tscn" id="10_kb00w"]
+[ext_resource type="PackedScene" uid="uid://du0urt2nu88ab" path="res://Resources/Objects/ballguy.tscn" id="10_kb00w"]
 [ext_resource type="PackedScene" uid="uid://dftoc48win36j" path="res://Resources/snake_enemy_container.tscn" id="12_p7wh0"]
 [ext_resource type="PackedScene" uid="uid://igcdf7do7npx" path="res://assets/imported/fade/fade/fade_screen.tscn" id="13_gvr58"]
 

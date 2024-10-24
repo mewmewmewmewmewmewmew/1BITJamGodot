@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://binhexol8ky21"]
+
+[ext_resource type="Texture2D" uid="uid://6mwpkow4lh4l" path="res://assets/2DAssets/test/spike.png" id="1_5n4os"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16mym"]
+
+[node name="spike" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5n4os")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_16mym")
+
+[node name="Area2D_damage" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_damage"]
+rotation = 0.785398
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_16mym")
